@@ -292,6 +292,7 @@ function openCheckout(p) {
   document.getElementById('checkoutForm').addEventListener('submit', submitOrder);
 }
 function $(id){return document.getElementById(id)}
+function closeModal(){$('modal').classList.remove('active');}
 async function submitOrder(event) {
   event.preventDefault();
   const form = event.currentTarget;
@@ -300,7 +301,7 @@ async function submitOrder(event) {
   const fd = new FormData(form);
   const token = crypto.randomUUID();
   const payload = {
-    public_token: token, product_id: activeProduct.id, product_name: activeProduct.name,
+    public_token: token, product_id: activeProduct.id, product_name: activeProduct.name, product_price: activeProduct.price,
     customer_name: String(fd.get('customer_name')).trim(),
     customer_email: String(fd.get('customer_email')).trim(),
     customer_phone: String(fd.get('customer_phone')).trim(),
