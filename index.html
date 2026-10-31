@@ -180,7 +180,7 @@
   .offer-link.primary { background:var(--accent); color:#05100c; }
   .offer-note { color:var(--muted)!important; font-size:.82rem; margin-top:14px!important; }
 
-</style>
+  .checkout-form{display:grid;gap:12px}.checkout-form label{display:grid;gap:5px;color:var(--muted);font-size:.9rem}.checkout-form input,.checkout-form select{width:100%;padding:12px;border-radius:8px;border:1px solid var(--border);background:#0a0e17;color:var(--text)}\n</style>
 </head>
 <body>
 
@@ -275,14 +275,66 @@ async function loadProducts() {
     productsGrid.innerHTML = '<p>নতুন সার্ভিস শিগগিরই যুক্ত করা হবে।</p>';
     return;
   }
-  productsGrid.innerHTML = data.map(renderProduct).join('');
+  productCache = data;\n  productsGrid.innerHTML = data.map(renderProduct).join('');
 }
-productsGrid.addEventListener('click', event => {
+
+let productCache = [];
+let activeProduct = null;
+let paymentCache = [];
+function openCheckout(p) {
+  activeProduct = p;
+  $('modalContent').innerHTML = '<h2>অর্ডার করুন</h2><p class="modal-info">'+esc(p.name)+'</p><div class="modal-price">'+esc(money(p.price))+'</div><form id="checkoutForm" class="checkout-form"><label>আপনার নাম<input name="customer_name" required minlength="2" maxlength="100" autocomplete="name"></label><label>ইমেইল অ্যাড্রেস<input name="customer_email" type="email" required maxlength="254" autocomplete="email"></label><label>ফোন নম্বর<input name="customer_phone" type="tel" required minlength="7" maxlength="25" autocomplete="tel"></label><label>পেমেন্ট মাধ্যম<select name="payment_method" id="paymentMethod" required><option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>'+paymentCache.map(m=>'<option value="'+esc(m.name+' — '+m.account_number)+'">'+esc(m.name+' — '+m.account_number)+'</option>').join('')+'</select></label><div id="paymentInstructions" class="payment-box">পেমেন্ট মাধ্যম নির্বাচন করলে নির্দেশনা দেখা যাবে।</div><label>Transaction ID<input name="transaction_reference" required minlength="3" maxlength="100" placeholder="পেমেন্টের Transaction ID"></label><p class="modal-info">অর্ডার জমা দেওয়ার পর Admin আপনার পেমেন্ট যাচাই করবেন। অনুমোদনের আগে APK ডাউনলোড চালু হবে না।</p><button class="download-btn" type="submit">অর্ডার জমা দিন</button><p id="checkoutMessage" role="status"></p></form>';
+  $('modal').classList.add('active');
+  document.getElementById('paymentMethod').addEventListener('change', e => {
+    const chosen = paymentCache.find(m => (m.name+' — '+m.account_number) === e.target.value);
+    document.getElementById('paymentInstructions').textContent = chosen ? ((chosen.instructions ? chosen.instructions+' · ' : '')+'পেমেন্ট নম্বর: '+chosen.account_number) : 'পেমেন্ট মাধ্যম নির্বাচন করলে নির্দেশনা দেখা যাবে।';
+  });
+  document.getElementById('checkoutForm').addEventListener('submit', submitOrder);
+}
+function $(id){return document.getElementById(id)}
+async function submitOrder(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const message = document.getElementById('checkoutMessage');
+  if (!paymentCache.length) { message.textContent='এখন কোনো পেমেন্ট মাধ্যম সক্রিয় নেই। অনুগ্রহ করে পরে চেষ্টা করুন।'; return; }
+  const fd = new FormData(form);
+  const token = crypto.randomUUID();
+  const payload = {
+    public_token: token, product_id: activeProduct.id, product_name: activeProduct.name,
+    customer_name: String(fd.get('customer_name')).trim(),
+    customer_email: String(fd.get('customer_email')).trim(),
+    customer_phone: String(fd.get('customer_phone')).trim(),
+    payment_method: String(fd.get('payment_method')),
+    transaction_reference: String(fd.get('transaction_reference')).trim()
+  };
+  message.textContent='অর্ডার জমা হচ্ছে...';
+  const {error} = await supabaseClient.from('checkout_orders').insert(payload);
+  if (error) { console.error(error); message.textContent='অর্ডার জমা হয়নি। আবার চেষ্টা করুন।'; return; }
+  $('modalContent').innerHTML = '<h2>অর্ডার গ্রহণ করা হয়েছে</h2><p class="modal-info">আপনার অর্ডার নম্বরটি সংরক্ষণ করুন। Admin পেমেন্ট যাচাই করে অনুমোদন দিলে এই পেজে ফিরে অর্ডার স্ট্যাটাস পরীক্ষা করতে পারবেন।</p><div class="payment-box"><strong>Order Reference</strong><p style="overflow-wrap:anywhere">'+esc(token)+'</p></div><button class="download-btn" type="button" id="trackOrder">অর্ডারের অবস্থা দেখুন</button><div id="trackResult" role="status"></div>';
+  document.getElementById('trackOrder').addEventListener('click',()=>trackOrder(token));
+}
+async function trackOrder(token) {
+  const tracker = window.supabase.createClient(CTH_SUPABASE_URL, CTH_SUPABASE_ANON_KEY, {global:{headers:{'x-order-token':token}}});
+  const {data,error} = await tracker.from('checkout_orders').select('status,download_url,product_name').eq('public_token',token).maybeSingle();
+  const target = document.getElementById('trackResult');
+  if (error || !data) { target.textContent='অর্ডারের তথ্য পাওয়া যায়নি। রেফারেন্সটি পরীক্ষা করুন।'; return; }
+  if (data.status === 'approved' || data.status === 'completed') {
+    target.innerHTML = '<p>আপনার অর্ডার অনুমোদিত হয়েছে।</p>'+(data.download_url ? '<a class="download-btn" href="'+esc(data.download_url)+'" target="_blank" rel="noopener noreferrer">APK ডাউনলোড করুন</a>' : '<p>ডাউনলোড লিংক এখনো সেট করা হয়নি। Support-এ যোগাযোগ করুন।');
+  } else if (data.status === 'rejected') target.textContent='অর্ডারটি অনুমোদিত হয়নি। Support-এ যোগাযোগ করুন।';
+  else target.textContent='আপনার পেমেন্ট যাচাই চলছে। কিছুক্ষণ পর আবার দেখুন।';
+}
+productsGrid.addEventListener('click', async event => {
   const button = event.target.closest('[data-order]');
   if (!button) return;
-  const name = button.closest('article').querySelector('.tool-name')?.textContent || 'সার্ভিস';
-  const message = 'আমি ' + name + ' সম্পর্কে বিস্তারিত জানতে চাই।';
-  window.open('https://wa.me/8801879939668?text=' + encodeURIComponent(message), '_blank', 'noopener');
+  const product = productCache.find(p=>p.id===button.dataset.order);
+  if (!product) return;
+  if (!paymentCache.length) {
+    const {data,error}=await supabaseClient.from('payment_methods').select('id,name,account_number,instructions').eq('is_active',true).order('sort_order');
+    if(error){alert('পেমেন্ট অপশন লোড করা যায়নি।');return;}
+    paymentCache=data||[];
+  }
+  if (!paymentCache.length) { alert('এখন কোনো পেমেন্ট মাধ্যম সক্রিয় নেই।'); return; }
+  openCheckout(product);
 });
 loadProducts();
 </script>
