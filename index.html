@@ -171,12 +171,12 @@
     CYBER<span>TEAM</span>HELP
     <small>ACCESS · TOOLS · SECURITY</small>
   </div>
-  <a href="#social" class="header-cta">Tools দেখুন</a>
+  <a href="#services" class="header-cta">সার্ভিস দেখুন</a>
 </header>
 
 <div class="hero">
-  <h1>Premium <span>Access Tools</span> Store</h1>
-  <p>সোশ্যাল মিডিয়া, ওয়েবসাইট ও সাইবার সিকিউরিটি অ্যাক্সেস টুলস — ১০০% লিগ্যাল, ইনস্ট্যান্ট ডেলিভারি।</p>
+  <h1>Professional <span>Cyber Security</span> Services</h1>
+  <p>অনুমোদিত Website Security Audit, Website Protection ও Backup Support—নিরাপদ ও পেশাদার সেবা।</p>
   <div class="hero-badges">
     <div class="badge"><strong>✓</strong> 100% Legal</div>
     <div class="badge"><strong>⚡</strong> Instant Access</div>
@@ -185,25 +185,11 @@
   </div>
 </div>
 
-<!-- SOCIAL MEDIA TOOLS -->
-<section id="social">
-  <div class="section-title">Social Media Access Tools</div>
-  <div class="section-sub">সবচেয়ে জনপ্রিয় প্ল্যাটফর্মগুলোর প্রিমিয়াম অ্যাক্সেস টুলস</div>
-  <div class="grid" id="socialGrid"></div>
-</section>
-
-<!-- WEBSITE TOOLS -->
-<section id="website">
-  <div class="section-title">Website Access Tools</div>
-  <div class="section-sub">ওয়েবসাইট, ডোমেইন ও সার্ভার অ্যাক্সেস টুলস</div>
-  <div class="grid" id="websiteGrid"></div>
-</section>
-
-<!-- CYBER SECURITY -->
-<section id="cyber">
-  <div class="section-title">Cyber Security Tools</div>
-  <div class="section-sub">প্রফেশনাল গ্রেড সিকিউরিটি ও পেনিট্রেশন টুলস</div>
-  <div class="grid" id="cyberGrid"></div>
+<!-- ADMIN-MANAGED PRODUCT CATALOG -->
+<section id="services">
+  <div class="section-title">Cyber Security Services</div>
+  <div class="section-sub">অনুমোদিত ও বৈধ সিকিউরিটি সার্ভিসসমূহ</div>
+  <div class="grid" id="productsGrid"><p>সার্ভিস লোড হচ্ছে...</p></div>
 </section>
 
 <!-- Modal -->
@@ -215,344 +201,54 @@
 </div>
 
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/8801XXXXXXXXX" class="float-wa" target="_blank" title="WhatsApp">💬</a>
+<a href="https://wa.me/8801879939668" class="float-wa" target="_blank" title="WhatsApp">💬</a>
 
 <footer>
   <strong>Cyber Team Help</strong> — Premium Access Tools<br>
-  © 2025 · WhatsApp: +880 1XXX-XXXXXX · All tools for legal use only.
+  © 2025 · WhatsApp: +8801879939668 · All tools for legal use only.
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./config.js"></script>
 <script>
-/* ================= TOOL DATA ================= */
-const tools = [
-  // ---- SOCIAL MEDIA ----
-  {
-    cat: 'social', icon: '📘', name: 'Facebook Access Tool',
-    short: 'ফেসবুক অ্যাকাউন্ট প্রিমিয়াম অ্যাক্সেস',
-    price: 3500,
-    info: {
-      'টাইপ': 'Social Media Access',
-      'কভারেজ': 'Full Account Access',
-      'প্ল্যাটফর্ম': 'Android / Windows',
-      'ভার্সন': 'v4.2.1',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '18.4 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'social', icon: '💚', name: 'WhatsApp Access Tool',
-    short: 'হোয়াটসঅ্যাপ চ্যাট ও মিডিয়া অ্যাক্সেস',
-    price: 3500,
-    info: {
-      'টাইপ': 'Social Media Access',
-      'কভারেজ': 'Chat + Media + Backup',
-      'প্ল্যাটফর্ম': 'Android / Windows',
-      'ভার্সন': 'v3.8.0',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '22.1 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'social', icon: '📸', name: 'Instagram Access Tool',
-    short: 'ইনস্টাগ্রাম প্রোফাইল ও DM অ্যাক্সেস',
-    price: 3200,
-    info: {
-      'টাইপ': 'Social Media Access',
-      'কভারেজ': 'Profile + DM + Posts',
-      'প্ল্যাটফর্ম': 'Android / Windows',
-      'ভার্সন': 'v2.9.4',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '16.8 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'social', icon: '🎵', name: 'TikTok Access Tool',
-    short: 'টিকটক অ্যাকাউন্ট ও ভিডিও অ্যাক্সেস',
-    price: 3000,
-    info: {
-      'টাইপ': 'Social Media Access',
-      'কভারেজ': 'Account + Videos + Analytics',
-      'প্ল্যাটফর্ম': 'Android',
-      'ভার্সন': 'v2.1.7',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '14.2 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'social', icon: '✈️', name: 'Telegram Access Tool',
-    short: 'টেলিগ্রাম চ্যাট ও চ্যানেল অ্যাক্সেস',
-    price: 3100,
-    info: {
-      'টাইপ': 'Social Media Access',
-      'কভারেজ': 'Chat + Channels + Files',
-      'প্ল্যাটফর্ম': 'Android / Windows',
-      'ভার্সন': 'v3.3.2',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '19.6 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'social', icon: '👻', name: 'Snapchat Access Tool',
-    short: 'স্ন্যাপচ্যাট স্ন্যাপ ও চ্যাট অ্যাক্সেস',
-    price: 3000,
-    info: {
-      'টাইপ': 'Social Media Access',
-      'কভারেজ': 'Snaps + Chat + Stories',
-      'প্ল্যাটফর্ম': 'Android',
-      'ভার্সন': 'v2.4.0',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '13.5 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'social', icon: '𝕏', name: 'Twitter / X Access Tool',
-    short: 'টুইটার এক্স অ্যাকাউন্ট অ্যাক্সেস',
-    price: 3200,
-    info: {
-      'টাইপ': 'Social Media Access',
-      'কভারেজ': 'Account + DMs + Posts',
-      'প্ল্যাটফর্ম': 'Android / Windows',
-      'ভার্সন': 'v2.6.1',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '15.0 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'social', icon: '📧', name: 'Gmail Access Tool',
-    short: 'জিমেইল ইমেইল ও অ্যাটাচমেন্ট অ্যাক্সেস',
-    price: 3300,
-    info: {
-      'টাইপ': 'Email Access',
-      'কভারেজ': 'Inbox + Sent + Attachments',
-      'প্ল্যাটফর্ম': 'Android / Windows',
-      'ভার্সন': 'v4.0.5',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '17.3 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'social', icon: '▶️', name: 'YouTube Access Tool',
-    short: 'ইউটিউব চ্যানেল ও ভিডিও অ্যাক্সেস',
-    price: 3000,
-    info: {
-      'টাইপ': 'Social Media Access',
-      'কভারেজ': 'Channel + Videos + Analytics',
-      'প্ল্যাটফর্ম': 'Android / Windows',
-      'ভার্সন': 'v1.9.8',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '12.7 MB'
-    },
-    apk: '#'
-  },
-  // ---- WEBSITE ----
-  {
-    cat: 'website', icon: '🌐', name: 'Website Access Tool',
-    short: 'যেকোনো ওয়েবসাইটের অ্যাডমিন অ্যাক্সেস',
-    price: 3400,
-    info: {
-      'টাইপ': 'Web Access',
-      'কভারেজ': 'Admin Panel + Database',
-      'প্ল্যাটফর্ম': 'Windows / Linux',
-      'ভার্সন': 'v5.2.0',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '28.9 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'website', icon: '🔓', name: 'CMS Access Tool',
-    short: 'WordPress / Joomla / Drupal অ্যাক্সেস',
-    price: 3200,
-    info: {
-      'টাইপ': 'CMS Access',
-      'কভারেজ': 'Admin + Plugins + DB',
-      'প্ল্যাটফর্ম': 'Windows / Linux',
-      'ভার্সন': 'v3.1.4',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '24.5 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'website', icon: '🗄️', name: 'Database Access Tool',
-    short: 'MySQL / MSSQL / MongoDB অ্যাক্সেস',
-    price: 3500,
-    info: {
-      'টাইপ': 'Database Access',
-      'কভারেজ': 'SQL + NoSQL + Backup',
-      'প্ল্যাটফর্ম': 'Windows / Linux',
-      'ভার্সন': 'v4.4.2',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '31.2 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'website', icon: '🖥️', name: 'Server Access Tool',
-    short: 'SSH / RDP / FTP সার্ভার অ্যাক্সেস',
-    price: 3500,
-    info: {
-      'টাইপ': 'Server Access',
-      'কভারেজ': 'SSH + RDP + FTP',
-      'প্ল্যাটফর্ম': 'Windows / Linux',
-      'ভার্সন': 'v3.7.0',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '26.8 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'website', icon: '🌍', name: 'Domain Access Tool',
-    short: 'ডোমেইন রেজিস্ট্রার অ্যাক্সেস',
-    price: 3100,
-    info: {
-      'টাইপ': 'Domain Access',
-      'কভারেজ': 'Registrar + DNS + WHOIS',
-      'প্ল্যাটফর্ম': 'Windows',
-      'ভার্সন': 'v2.5.3',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '21.0 MB'
-    },
-    apk: '#'
-  },
-  // ---- CYBER ----
-  {
-    cat: 'cyber', icon: '🛡️', name: 'Cyber Security Suite',
-    short: 'ফুল সিকিউরিটি ও পেনিট্রেশন টুলস',
-    price: 3500,
-    info: {
-      'টাইপ': 'Security Suite',
-      'কভারেজ': 'Vuln Scan + Exploit + Report',
-      'প্ল্যাটফর্ম': 'Windows / Linux',
-      'ভার্সন': 'v6.0.1',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '48.3 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'cyber', icon: '📡', name: 'WiFi Access Tool',
-    short: 'WiFi নেটওয়ার্ক অ্যাক্সেস ও অ্যানালাইসিস',
-    price: 3000,
-    info: {
-      'টাইপ': 'Network Access',
-      'কভারেজ': 'Scan + Handshake + Decrypt',
-      'প্ল্যাটফর্ম': 'Windows / Linux',
-      'ভার্সন': 'v3.2.1',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '27.4 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'cyber', icon: '📹', name: 'CCTV Access Tool',
-    short: 'IP ক্যামেরা ও CCTV অ্যাক্সেস',
-    price: 3400,
-    info: {
-      'টাইপ': 'Camera Access',
-      'কভারেজ': 'IP Cam + RTSP + Cloud',
-      'প্ল্যাটফর্ম': 'Windows / Android',
-      'ভার্সন': 'v2.8.6',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '23.9 MB'
-    },
-    apk: '#'
-  },
-  {
-    cat: 'cyber', icon: '🔑', name: 'Password Recovery Tool',
-    short: 'পাসওয়ার্ড রিকভারি ও ডিক্রিপশন',
-    price: 3200,
-    info: {
-      'টাইপ': 'Password Tool',
-      'কভারেজ': 'Hash + Brute + Rainbow',
-      'প্ল্যাটফর্ম': 'Windows / Linux',
-      'ভার্সন': 'v4.1.0',
-      'আপডেট': '2025',
-      'ফাইল সাইজ': '35.6 MB'
-    },
-    apk: '#'
+const supabaseClient = window.supabase.createClient(CTH_SUPABASE_URL, CTH_SUPABASE_ANON_KEY);
+const productsGrid = document.getElementById('productsGrid');
+const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const money = value => value === null || value === '' ? 'মূল্য জানতে যোগাযোগ করুন' : '৳ ' + Number(value).toLocaleString('en-BD');
+function renderProduct(p) {
+  const media = p.image_url
+    ? '<img src="' + esc(p.image_url) + '" alt="' + esc(p.name) + '" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:14px">'
+    : '<div aria-hidden="true" style="height:110px;display:grid;place-items:center;font-size:2.6rem">🛡️</div>';
+  return '<article class="tool-card">' + media +
+    '<div class="tool-name">' + esc(p.name) + '</div>' +
+    '<div class="tool-desc">' + esc(p.description || 'বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।') + '</div>' +
+    '<div class="tool-price"><span class="price">' + esc(money(p.price)) + '</span>' +
+    '<button class="buy-btn" type="button" data-order="' + esc(p.id) + '">বিস্তারিত / অর্ডার</button></div></article>';
+}
+async function loadProducts() {
+  productsGrid.innerHTML = '<p>সার্ভিস লোড হচ্ছে...</p>';
+  const {data, error} = await supabaseClient.from('products')
+    .select('id,name,description,price,image_url')
+    .eq('is_published', true).order('sort_order').order('created_at');
+  if (error) {
+    productsGrid.innerHTML = '<p>সার্ভিস লোড করা যায়নি। পরে আবার চেষ্টা করুন।</p>';
+    console.error('Product catalog error:', error);
+    return;
   }
-];
-
-/* ================= RENDER ================= */
-function renderCard(t) {
-  return `
-    <div class="tool-card" onclick="openModal('${t.name}')">
-      <span class="tool-icon">${t.icon}</span>
-      <div class="tool-name">${t.name}</div>
-      <div class="tool-desc">${t.short}</div>
-      <div class="tool-price">
-        <span class="price">৳ ${t.price.toLocaleString('en-BD')}</span>
-        <button class="buy-btn">Buy Now</button>
-      </div>
-    </div>`;
-}
-
-document.getElementById('socialGrid').innerHTML =
-  tools.filter(t => t.cat === 'social').map(renderCard).join('');
-document.getElementById('websiteGrid').innerHTML =
-  tools.filter(t => t.cat === 'website').map(renderCard).join('');
-document.getElementById('cyberGrid').innerHTML =
-  tools.filter(t => t.cat === 'cyber').map(renderCard).join('');
-
-/* ================= MODAL ================= */
-function openModal(name) {
-  const t = tools.find(x => x.name === name);
-  if (!t) return;
-
-  let infoRows = '';
-  for (const [k, v] of Object.entries(t.info)) {
-    infoRows += `<div class="info-row"><span>${k}</span><span>${v}</span></div>`;
+  if (!data || !data.length) {
+    productsGrid.innerHTML = '<p>নতুন সার্ভিস শিগগিরই যুক্ত করা হবে।</p>';
+    return;
   }
-
-  document.getElementById('modalContent').innerHTML = `
-    <h2>${t.icon} ${t.name}</h2>
-    <div class="modal-price">৳ ${t.price.toLocaleString('en-BD')}</div>
-    <p class="modal-info">${t.short} — সম্পূর্ণ ইনফরমেশন নিচে দেওয়া হলো।</p>
-
-    <div>${infoRows}</div>
-
-    <a href="${t.apk}" class="download-btn" download>⬇ APK ফাইল ডাউনলোড</a>
-
-    <div class="payment-title">💳 পেমেন্ট অপশন</div>
-    <div class="payment-box">
-      <strong>বিকাশ (bKash):</strong> <span class="bikash">017XX-XXXXXX</span><br>
-      <strong>নগদ (Nagad):</strong> <span class="bikash">017XX-XXXXXX</span><br>
-      <strong>রকেট (Rocket):</strong> <span class="bikash">017XX-XXXXXX</span><br><br>
-      <span style="color:#8892a6; font-size:0.8rem;">
-        পেমেন্ট করার পর নিচের WhatsApp-এ স্ক্রিনশট পাঠান। ফাইল ইনস্ট্যান্ট ডেলিভারি।
-      </span>
-    </div>
-
-    <a href="https://wa.me/8801XXXXXXXXX?text=আমি%20${encodeURIComponent(t.name)}%20কিনতে%20চাই" 
-       class="wa-btn" target="_blank">
-      💬 WhatsApp-এ অর্ডার করুন
-    </a>
-  `;
-  document.getElementById('modal').classList.add('active');
-  document.body.style.overflow = 'hidden';
+  productsGrid.innerHTML = data.map(renderProduct).join('');
 }
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-document.getElementById('modal').addEventListener('click', (e) => {
-  if (e.target.id === 'modal') closeModal();
+productsGrid.addEventListener('click', event => {
+  const button = event.target.closest('[data-order]');
+  if (!button) return;
+  const name = button.closest('article').querySelector('.tool-name')?.textContent || 'সার্ভিস';
+  const message = 'আমি ' + name + ' সম্পর্কে বিস্তারিত জানতে চাই।';
+  window.open('https://wa.me/8801879939668?text=' + encodeURIComponent(message), '_blank', 'noopener');
 });
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
+loadProducts();
 </script>
 
 </body>
