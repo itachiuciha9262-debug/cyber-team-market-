@@ -1,13 +1,13 @@
-<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CTH Client</title><link rel="stylesheet" href="../panel.css"><main><h1>Cyber Team Help · Client</h1><p><a href="/">Main website</a></p><section id="auth"><input id="email" type="email" placeholder="Email"><input id="password" type="password" placeholder="Password"><button id="in">Sign in</button><button id="up">Create account</button><p id="msg"></p></section><section id="panel" hidden><p id="who"></p><button id="out">Sign out</button><h2>My requests</h2><div id="items"></div><h2>Submit service request</h2><select id="service"><option>Website security review (my site / authorized site)</option><option>Account security setup and recovery guidance</option><option>Website hardening and updates</option><option>Backup and security review</option><option>Domain and DNS security review</option></select><textarea id="details" placeholder="Describe what help you need"></textarea><button id="create">Submit request</button></section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.js"></script><script>
-const $=id=>document.getElementById(id);let sb,user;
-function msg(s){$('msg').textContent=s}
-async function start(){sb=window.supabase.createClient(CTH_SUPABASE_URL,CTH_SUPABASE_ANON_KEY);const {data}=await sb.auth.getSession();if(data.session)await login(data.session.user)}
-async function login(u){user=u;$('auth').hidden=true;$('panel').hidden=false;$('who').textContent=u.email;await load()}
-async function load(){const {data,error}=await sb.from('service_requests').select('id,title,details,status,created_at').order('created_at',{ascending:false});if(error){msg(error.message);return}$('items').innerHTML=(data||[]).map(x=>'<article><b>'+esc(x.title)+'</b><p>'+esc(x.details)+'</p><small>'+esc(x.status)+' · '+new Date(x.created_at).toLocaleString()+'</small></article>').join('')||'No requests yet.'}
-function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-$('in').onclick=async()=>{const {data,error}=await sb.auth.signInWithPassword({email:$('email').value,password:$('password').value});if(error)msg(error.message);else await login(data.user)};
-$('up').onclick=async()=>{const {error}=await sb.auth.signUp({email:$('email').value,password:$('password').value});msg(error?error.message:'Account created/requested. Confirm email if prompted.')};
-$('out').onclick=async()=>{await sb.auth.signOut();location.reload()};
-$('create').onclick=async()=>{const details=$('details').value.trim();if(!details)return msg('Describe the service you need.');const {error}=await sb.from('service_requests').insert({user_id:user.id,title:$('service').value,details});msg(error?error.message:'Request submitted');if(!error){$('details').value='';await load()}};
-start();
-</script></html>
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="0;url=/" />
+<title>Cyber Team Help · Shop</title>
+<script>location.replace("/");</script>
+</head>
+<body>
+<p>Shop-এ নেওয়া হচ্ছে… <a href="/">এখানে ক্লিক করুন</a></p>
+</body>
+</html>
