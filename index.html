@@ -275,6 +275,31 @@
     .service-info-card p,.service-info-list li { font-size:.83rem; }
   }
 
+
+  /* Friendly e-commerce style hero and service benefits */
+  .shop-hero { padding:clamp(42px,6vw,76px) 22px 34px; text-align:left; background:radial-gradient(ellipse at 82% 5%,rgba(0,224,164,.15),transparent 36%),linear-gradient(180deg,#0d1d27 0%,var(--bg) 100%); }
+  .shop-hero-inner { max-width:1120px; margin:0 auto; }
+  .shop-eyebrow { display:flex; align-items:center; gap:9px; color:#8ddfca; font-size:.7rem; font-weight:850; letter-spacing:1.35px; margin-bottom:15px; }
+  .shop-eyebrow span { width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 14px rgba(0,224,164,.75); }
+  .shop-hero h1 { max-width:800px; font-size:clamp(2rem,5vw,3.35rem); line-height:1.2; letter-spacing:-1px; margin:0 0 14px; }
+  .shop-hero h1 span { color:var(--accent); }
+  .shop-hero> .shop-hero-inner>p { max-width:700px; color:#aebdca; font-size:clamp(.9rem,1.5vw,1.04rem); line-height:1.85; margin:0 0 23px; }
+  .shop-hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px; }
+  .shop-primary-cta,.shop-secondary-cta { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:46px; padding:11px 18px; border-radius:10px; text-decoration:none; font-size:.86rem; font-weight:800; transition:.2s; }
+  .shop-primary-cta { background:var(--accent); color:#06130f; box-shadow:0 8px 22px rgba(0,224,164,.16); }
+  .shop-primary-cta:hover { background:#42efc0; transform:translateY(-2px); }
+  .shop-secondary-cta { border:1px solid rgba(148,163,184,.3); color:#e3ebf2; background:rgba(255,255,255,.035); }
+  .shop-secondary-cta:hover { border-color:var(--accent); color:var(--accent); }
+  .shop-benefits { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid rgba(148,163,184,.16); border-radius:15px; background:rgba(9,18,29,.7); overflow:hidden; }
+  .shop-benefit { display:flex; align-items:center; gap:11px; min-width:0; padding:15px 14px; }
+  .shop-benefit+.shop-benefit { border-left:1px solid rgba(148,163,184,.14); }
+  .shop-benefit>span { display:grid; place-items:center; flex:0 0 34px; width:34px; height:34px; border-radius:10px; color:var(--accent); background:rgba(0,224,164,.1); font-size:1rem; font-weight:900; }
+  .shop-benefit>div { display:grid; gap:3px; min-width:0; }
+  .shop-benefit strong { color:#eaf1f7; font-size:.8rem; line-height:1.35; }
+  .shop-benefit small { color:#8798aa; font-size:.68rem; line-height:1.4; }
+  @media(max-width:760px) { .shop-hero { padding:40px 16px 25px; } .shop-benefits { grid-template-columns:repeat(2,minmax(0,1fr)); } .shop-benefit { padding:12px 10px; } .shop-benefit:nth-child(3) { border-left:0; border-top:1px solid rgba(148,163,184,.14); } .shop-benefit:nth-child(4) { border-top:1px solid rgba(148,163,184,.14); } }
+  @media(max-width:420px) { .shop-hero h1 { font-size:1.85rem; } .shop-benefit { gap:8px; } .shop-benefit>span { flex-basis:30px; width:30px; height:30px; } .shop-benefit strong { font-size:.73rem; } .shop-benefit small { font-size:.62rem; } }
+
 </style>
 </head>
 <body>
@@ -340,11 +365,23 @@
   </div>
 </section>
 
-<div class="hero">
-  <h1>Professional <span>Cyber Security</span> Services</h1>
-  <p>অনুমোদিত Website Security Audit, Website Protection ও Backup Support—নিরাপদ ও পেশাদার সেবা।</p>
-  <div class="hero-badges">
-    <div class="badge"><strong>✓</strong> 100% Legal</div>
+<div class="hero shop-hero">
+  <div class="shop-hero-inner">
+    <div class="shop-eyebrow"><span></span> CYBER TEAM HELP · TRUSTED DIGITAL SERVICES</div>
+    <h1>আপনার অনলাইন নিরাপত্তায় <span>বিশ্বস্ত সঙ্গী</span></h1>
+    <p>ওয়েবসাইট সিকিউরিটি, প্রোটেকশন ও ব্যাকআপ সাপোর্ট—আপনার প্রয়োজন অনুযায়ী বেছে নিন উপযুক্ত সার্ভিস। সহজ অর্ডার, পরিষ্কার তথ্য এবং প্রয়োজনীয় কাস্টমার সাপোর্ট।</p>
+    <div class="shop-hero-actions">
+      <a href="#services" class="shop-primary-cta">সার্ভিসগুলো দেখুন <span>→</span></a>
+      <a href="https://wa.me/8801879939668" class="shop-secondary-cta" target="_blank" rel="noopener noreferrer">সাপোর্টে কথা বলুন</a>
+    </div>
+    <div class="shop-benefits" aria-label="সার্ভিস সুবিধা">
+      <div class="shop-benefit"><span>⚡</span><div><strong>দ্রুত ডেলিভারি</strong><small>সেটআপ ও যাচাই সাপেক্ষে</small></div></div>
+      <div class="shop-benefit"><span>✓</span><div><strong>১০০% অনুমোদিত কাজ</strong><small>মালিকের অনুমতি সাপেক্ষে</small></div></div>
+      <div class="shop-benefit"><span>🔒</span><div><strong>নিরাপদ পেমেন্ট</strong><small>সহজ অর্ডার প্রক্রিয়া</small></div></div>
+      <div class="shop-benefit"><span>☏</span><div><strong>কাস্টমার সাপোর্ট</strong><small>প্রয়োজনে সহায়তা</small></div></div>
+    </div>
+  </div>
+</div>
     <div class="badge"><strong>⚡</strong> Instant Access</div>
     <div class="badge"><strong>🔒</strong> Secure Payment</div>
     <div class="badge"><strong>🛡</strong> Cyber Team Help</div>
