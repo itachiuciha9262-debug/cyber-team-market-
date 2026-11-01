@@ -25,6 +25,34 @@ footer{text-align:center;padding:35px 10px;color:#8196b0;font-size:12px}
 
 .catalog{margin:24px 0}.catalog h2{margin:0 0 14px}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.product{background:#0b192a;border:1px solid var(--line);border-radius:15px;padding:16px;display:flex;flex-direction:column;gap:10px}.product-top{display:flex;align-items:center;gap:12px}.product-logo{width:48px;height:48px;object-fit:contain;background:#142640;border:1px solid var(--line);border-radius:12px;padding:8px}.product h3{font-size:15px;margin:0}.product p{font-size:12px;color:var(--muted);margin:0;min-height:34px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}.product-price{font-weight:850;color:var(--cyan)}.modal{position:fixed;inset:0;background:#020812dd;z-index:20;display:none;align-items:center;justify-content:center;padding:16px;overflow:auto}.modal.open{display:flex}.modal-box{width:min(560px,100%);max-height:94vh;overflow:auto;background:#10213a;border:1px solid #355577;border-radius:18px;padding:22px}.modal-box h2{margin:0 0 8px}.modal-close{float:right;background:#1b304a;color:white;border:1px solid var(--line);border-radius:9px;padding:6px 11px}.formgrid label{font-size:13px}.payhint{background:#0b192a;border:1px solid var(--line);padding:13px;border-radius:11px;color:#c6d8ed;font-size:13px}.product button{width:100%}
 @media(max-width:800px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:480px){.products{grid-template-columns:1fr}}
+
+/* Cyber Team Help neon storefront theme */
+:root{--bg:#020817;--panel:#07152c;--panel2:#0a1d3b;--line:#1554a0;--text:#f4f8ff;--muted:#b5c8e8;--blue:#168cff;--cyan:#13e5ff;--green:#27f18a}
+body{background:radial-gradient(ellipse at 12% 8%,#101b69 0,transparent 34%),radial-gradient(ellipse at 90% 25%,#24105b 0,transparent 35%),linear-gradient(135deg,#020615,#030d22 55%,#07051c);font-family:Inter,"Noto Sans Bengali",system-ui,sans-serif}
+header{background:#020817ed;border-bottom:1px solid #145cff;box-shadow:0 4px 25px #004dff55}
+.brand{font-size:clamp(18px,3vw,28px);text-shadow:0 0 18px #00cfff66}.brand span{color:#12eaff}
+.nav a,.btn{border-radius:12px}.nav a{border:1px solid #1b6cff;background:linear-gradient(110deg,#071c4c,#10104a);box-shadow:0 0 15px #005dff55}
+.hero{padding:26px 0 22px}.hero:after{content:"প্রিয়জনের ডিভাইস আপনার নিয়ন্ত্রণে  •  Premium Service  •  24 Hours Support";display:block;margin-top:18px;padding:24px 20px;border:1px solid #087dff;border-radius:18px;background:linear-gradient(100deg,#08133cdd,#071e42dd,#160b3cdd);box-shadow:0 0 25px #006bff66,inset 0 0 28px #00cfff18;color:#effaff;font-size:clamp(18px,3vw,28px);font-weight:900;text-align:center;text-shadow:0 0 14px #00d9ff}
+.hero h1{color:#fff;text-shadow:0 0 16px #168cff}.eyebrow{color:#23eaff}
+.panel{background:linear-gradient(145deg,#071b3b,#050d23 70%,#130b35);border:1px solid #1769e9;box-shadow:0 0 18px #005dff55, inset 0 0 20px #00aaff0b;border-radius:18px}
+.auth{box-shadow:0 0 25px #005dff55}.btn{background:linear-gradient(110deg,#0069ed,#00bde9);box-shadow:0 0 14px #007bff66;color:white}.btn.secondary{background:linear-gradient(110deg,#101d4b,#17103f);border:1px solid #287bff}
+.stats .stat,.item,.tab,.empty{background:linear-gradient(145deg,#071a38,#090e26);border-color:#174e9b;box-shadow:0 0 10px #005bff22}
+.tab.active{background:linear-gradient(100deg,#064cba,#2a1c88);box-shadow:0 0 14px #007bff77}
+.catalog{margin:25px 0}.catalog>.panel{padding:20px}.catalog h2{font-size:clamp(20px,3vw,27px);text-shadow:0 0 12px #087cff}
+.products{grid-template-columns:repeat(4,minmax(0,1fr));gap:11px}
+.product{min-height:185px;text-align:center;align-items:center;justify-content:space-between;padding:14px 10px;background:linear-gradient(150deg,#071a3a,#050b20 65%,#160c35);border:1px solid #1764d9;border-radius:13px;box-shadow:inset 0 0 18px #007bff10,0 0 10px #004dff33;transition:.2s}
+.product:hover{transform:translateY(-3px);border-color:#14e7ff;box-shadow:0 0 20px #007bff88,inset 0 0 18px #00d9ff18}
+.product-top{flex-direction:column;gap:8px;justify-content:center}.product-logo{width:55px;height:55px;padding:9px;background:linear-gradient(145deg,#071f49,#10103b);border:1px solid #188aff;border-radius:12px;filter:drop-shadow(0 0 8px #00aaff55)}
+.product h3{font-size:14px;line-height:1.35;min-height:38px;display:flex;align-items:center;justify-content:center}
+.product p{font-size:11px;min-height:38px;line-height:1.45}
+.product-bottom{width:100%;flex-direction:column;gap:8px}.product-price{font-size:17px;color:#ffe64b;text-shadow:0 0 10px #ffbd00}
+.product button{width:100%;min-height:37px;font-size:13px}
+.modal{backdrop-filter:blur(8px)}.modal-box{background:linear-gradient(145deg,#0a1d40,#080d25,#170c39);border-color:#168bff;box-shadow:0 0 35px #006cff77}
+.payhint{background:#06152e;border-color:#1764b9}
+footer{border-top:1px solid #1258bc;color:#adc8ef}
+@media(max-width:850px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.product{min-height:178px}.hero:after{padding:18px 12px}.catalog>.panel{padding:13px}}
+
 </style>
 </head>
 <body>
