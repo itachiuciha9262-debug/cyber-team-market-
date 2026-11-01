@@ -401,6 +401,38 @@
     .service-info-card { padding:19px 16px; }
     .service-info-list li { font-size:.82rem; padding:10px 10px 10px 36px; }
   }
+
+
+  /* Numbered, expandable service catalogue */
+  #services .grid { display:flex; flex-direction:column; gap:11px; max-width:1040px; margin:22px auto 0; }
+  .service-accordion { width:100%; overflow:hidden; border:1px solid #263954; border-radius:15px; background:linear-gradient(110deg,#111e31,#0b1423); box-shadow:0 7px 20px rgba(0,0,0,.16); transition:border-color .2s,background .2s; }
+  .service-accordion[open] { border-color:#6b9ce5; background:linear-gradient(110deg,#14243b,#0c1728); }
+  .service-accordion-trigger { min-height:76px; display:flex; align-items:center; gap:14px; padding:13px 18px; cursor:pointer; list-style:none; }
+  .service-accordion-trigger::-webkit-details-marker { display:none; }
+  .service-row-number { width:30px; flex:0 0 30px; color:#7f9fc9; font-size:.78rem; font-weight:800; letter-spacing:.6px; }
+  .service-row-logo { width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center; overflow:hidden; border:1px solid #344964; border-radius:12px; background:#0a1423; }
+  .service-row-logo img { width:25px; height:25px; object-fit:contain; }
+  .service-row-fallback { color:#a9caff; font-size:1.2rem; }
+  .service-row-title { flex:1; min-width:0; color:#f4f7fc; font-size:1rem; font-weight:750; line-height:1.45; }
+  .service-row-chevron { width:30px; height:30px; flex:0 0 30px; display:grid; place-items:center; border:1px solid #344964; border-radius:9px; color:#a9caff; font-size:1.25rem; transition:transform .2s,background .2s; }
+  .service-accordion[open] .service-row-chevron { transform:rotate(180deg); background:#203957; }
+  .service-accordion-panel { margin:0 18px 17px 62px; padding:16px 18px; border:1px solid #263b57; border-radius:12px; background:rgba(4,11,21,.58); }
+  .service-row-description { margin:0 0 16px; color:#c3cede; font-size:.91rem; line-height:1.85; white-space:pre-line; overflow-wrap:anywhere; }
+  .service-row-footer { display:flex; align-items:center; justify-content:space-between; gap:14px; padding-top:13px; border-top:1px solid #26364c; }
+  .service-row-price { color:#f2f6ff; font-size:1rem; }
+  .service-row-footer .buy-btn { margin:0; white-space:nowrap; }
+  @media(max-width:560px) {
+    #services .grid { gap:9px; margin-top:17px; }
+    .service-accordion-trigger { min-height:67px; gap:10px; padding:11px 12px; }
+    .service-row-number { width:23px; flex-basis:23px; font-size:.7rem; }
+    .service-row-logo { width:37px; height:37px; flex-basis:37px; border-radius:10px; }
+    .service-row-logo img { width:22px; height:22px; }
+    .service-row-title { font-size:.91rem; }
+    .service-row-chevron { width:27px; height:27px; flex-basis:27px; }
+    .service-accordion-panel { margin:0 11px 12px 45px; padding:13px; }
+    .service-row-description { font-size:.85rem; line-height:1.75; }
+  }
+
 </style>
 </head>
 <body>
@@ -514,15 +546,22 @@ const supabaseClient = window.supabase.createClient(CTH_SUPABASE_URL, CTH_SUPABA
 const productsGrid = document.getElementById('productsGrid');
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const money = value => value === null || value === '' ? 'মূল্য জানতে যোগাযোগ করুন' : '৳ ' + Number(value).toLocaleString('en-BD');
-function renderProduct(p) {
+function renderProduct(p, index) {
   const media = p.image_url
-    ? '<div class="tool-media"><img src="' + esc(p.image_url) + '" alt="' + esc(p.name) + ' logo" loading="lazy"></div>'
-    : '<div class="tool-media" aria-hidden="true">🛡️</div>';
-  return '<article class="tool-card">' + media +
-    '<div class="tool-name">' + esc(p.name) + '</div>' +
-    '<div class="tool-desc">' + esc(p.description || 'বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।') + '</div>' +
-    '<div class="tool-price"><span class="price">' + esc(money(p.price)) + '</span>' +
-    '<button class="buy-btn" type="button" data-order="' + esc(p.id) + '">বিস্তারিত / অর্ডার</button></div></article>';
+    ? '<span class="service-row-logo"><img src="' + esc(p.image_url) + '" alt="" loading="lazy"></span>'
+    : '<span class="service-row-logo service-row-fallback" aria-hidden="true">🛡️</span>';
+  return '<details class="service-accordion">' +
+    '<summary class="service-accordion-trigger">' +
+      '<span class="service-row-number">' + String(index + 1).padStart(2, '0') + '</span>' +
+      media +
+      '<span class="service-row-title">' + esc(p.name) + '</span>' +
+      '<span class="service-row-chevron" aria-hidden="true">⌄</span>' +
+    '</summary>' +
+    '<div class="service-accordion-panel">' +
+      '<p class="service-row-description">' + esc(p.description || 'বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।') + '</p>' +
+      '<div class="service-row-footer"><strong class="service-row-price">' + esc(money(p.price)) + '</strong>' +
+      '<button class="buy-btn" type="button" data-order="' + esc(p.id) + '">অর্ডার করুন</button></div>' +
+    '</div></details>';
 }
 async function loadProducts() {
   productsGrid.innerHTML = '<p>সার্ভিস লোড হচ্ছে...</p>';
@@ -539,7 +578,7 @@ async function loadProducts() {
     return;
   }
   productCache = data;
-  productsGrid.innerHTML = data.map(renderProduct).join('');
+  productsGrid.innerHTML = data.map((product, index) => renderProduct(product, index)).join('');
 }
 
 let productCache = [];
