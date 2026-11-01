@@ -882,6 +882,19 @@ async function loadProducts() {
   }
   productCache = data;
   productsGrid.innerHTML = data.map((product, index) => renderProduct(product, index)).join('');
+  const requestedOrder = new URLSearchParams(location.search).get('order');
+  if (requestedOrder) {
+    const selected = productCache.find(product => String(product.id) === requestedOrder);
+    if (selected) {
+      const {data: methods, error: paymentError} = await supabaseClient.from('payment_methods')
+        .select('id,name,account_number,instructions').eq('is_active',true).order('sort_order');
+      if (!paymentError) {
+        paymentCache = methods || [];
+        if (paymentCache.length) openCheckout(selected);
+        else console.warn('No active payment methods configured.');
+      }
+    }
+  }
 }
 
 let productCache = [];
