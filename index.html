@@ -433,60 +433,67 @@
     .service-row-description { font-size:.85rem; line-height:1.75; }
   }
 
+
+  /* CTH electric-blue premium reference redesign */
+  :root { --bg:#030b1b; --card:#0b1730; --card-hover:#112347; --accent:#08baff; --accent-dim:#087fe8; --text:#f5f8ff; --muted:#a6b6d2; --border:#243d68; }
+  body { background:radial-gradient(ellipse at 50% 12%,#071b3c 0%,#030b1b 52%,#020817 100%); color:#f5f8ff; }
+  .cth-header { min-height:78px; padding:10px clamp(16px,3vw,44px); display:flex; gap:20px; align-items:center; justify-content:space-between; background:rgba(2,8,22,.94); border-bottom:1px solid #18365f; box-shadow:0 5px 24px rgba(0,0,0,.25); }
+  .cth-brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:#f7fbff; min-width:220px; }
+  .cth-brand-shield { width:48px; height:52px; display:grid; place-items:center; color:#dff7ff; font-weight:900; font-size:1rem; border:2px solid #42d7ff; clip-path:polygon(50% 0,95% 15%,88% 70%,50% 100%,12% 70%,5% 15%); filter:drop-shadow(0 0 8px #078cff); }
+  .cth-brand-copy { display:grid; line-height:1.15; }.cth-brand-copy strong { font-size:1.22rem; letter-spacing:-.4px; }.cth-brand-copy em { color:#12baff; font-style:normal; }.cth-brand-copy small { color:#a9bbd6; font-size:.68rem; margin-top:5px; }
+  .cth-nav { display:flex; align-items:center; justify-content:center; gap:clamp(8px,1.8vw,26px); }.cth-nav a { color:#dce9ff; text-decoration:none; font-size:.83rem; font-weight:650; padding:9px 11px; border-radius:20px; white-space:nowrap; }.cth-nav a.active { background:linear-gradient(110deg,#087ef5,#4b31e8); box-shadow:0 0 18px #164fff66; }.cth-nav a:hover { color:#36caff; }
+  .cth-login { color:#fff; text-decoration:none; padding:9px 17px; border:1px solid #168dff; border-radius:20px; box-shadow:0 0 15px #087fff55; font-size:.8rem; font-weight:750; white-space:nowrap; }
+  .cth-hero { max-width:none; min-height:350px; padding:38px clamp(20px,4vw,56px) 30px; display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:18px; text-align:left; overflow:hidden; position:relative; background:radial-gradient(ellipse at 75% 40%,#06316b99,transparent 43%),linear-gradient(110deg,#030b1b,#04132c 70%,#030b1b); border-bottom:1px solid #1a3d72; }
+  .cth-hero-copy { position:relative; z-index:2; max-width:690px; }.cth-trust { display:inline-flex; align-items:center; padding:6px 14px; border:1px solid #1264a8; border-radius:22px; color:#c9f4ff; font-size:.82rem; font-weight:750; box-shadow:0 0 14px #008cff33; }.cth-trust span { color:#ffd43b; margin-left:9px; letter-spacing:2px; }
+  .cth-hero h1 { font-size:clamp(2.1rem,4.5vw,3.65rem); line-height:1.04; letter-spacing:-1.8px; margin:17px 0 13px; font-weight:900; }.cth-hero h1 span { color:#12b9f5; }.cth-hero-lead { color:#c2e9ff; font-size:clamp(.94rem,1.5vw,1.14rem); font-weight:650; margin:0 0 13px; }.cth-hero-checks { display:flex; flex-wrap:wrap; gap:18px; color:#dcecff; font-size:.82rem; margin:14px 0 22px; }.cth-hero-checks span::first-letter { color:#16aaff; }
+  .cth-explore { display:inline-flex; align-items:center; padding:13px 20px; border-radius:13px; background:linear-gradient(110deg,#00b9f4,#254bff 70%,#8b24e8); box-shadow:0 8px 25px #075dff55; color:white; text-decoration:none; font-weight:850; font-size:.92rem; }
+  .cth-hero-art { min-height:300px; position:relative; display:grid; place-items:center; isolation:isolate; }.cth-world { position:absolute; width:min(300px,72%); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle at 35% 30%,#168dff,#073d86 45%,#03162f 72%); border:1px solid #16aaff; box-shadow:0 0 35px #008cff99,inset 0 0 35px #00aaff55; overflow:hidden; }.cth-world-grid { position:absolute; inset:0; opacity:.5; background-image:linear-gradient(0deg,transparent 48%,#3acaff 49%,transparent 50%),linear-gradient(90deg,transparent 48%,#3acaff 49%,transparent 50%); background-size:28px 28px; border-radius:50%; }.cth-orbit { position:absolute; width:94%; height:48%; border:2px solid #0aaaff; border-radius:50%; transform:rotate(-18deg); box-shadow:0 0 13px #009dff; }.orbit-two { transform:rotate(28deg); width:105%; height:57%; border-color:#713dff; }.cth-figure { position:absolute; bottom:0; width:54%; height:78%; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; }.cth-hood { width:47%; height:49%; border-radius:48% 48% 20% 20%; background:radial-gradient(ellipse at 50% 60%,#07152d 0 38%,#020714 68%); border:2px solid #087aff; box-shadow:0 0 24px #008cff; }.cth-laptop { width:100%; height:34%; border:2px solid #08baff; border-radius:13px 13px 5px 5px; background:linear-gradient(145deg,#102c57,#030b1b); box-shadow:0 0 28px #007dff77; display:grid; place-content:center; text-align:center; color:#1acaff; font-size:2.4rem; }.cth-laptop small { font-size:.58rem; letter-spacing:3px; color:#c6eaff; }.cth-social { position:absolute; z-index:3; width:52px; height:52px; display:grid; place-items:center; border-radius:14px; color:white; font-size:2rem; font-weight:900; box-shadow:0 0 20px #007bff77; border:1px solid #61d9ff; background:linear-gradient(145deg,#087fff,#2427bd); }.social-f { top:16%; left:12%; }.social-w { top:18%; right:10%; background:linear-gradient(145deg,#00d66c,#008d45); }.social-i { bottom:28%; left:7%; background:linear-gradient(145deg,#ff8b35,#c52b9b); }.social-y { bottom:34%; right:6%; background:linear-gradient(145deg,#ff4d4d,#bb071b); }
+  .cth-services { max-width:1220px; padding:28px 24px 22px; }.cth-section-heading { text-align:center; margin:0 auto 17px; }.cth-section-heading>span { display:inline-block; color:#12caff; border:1px solid #087dce; border-radius:20px; padding:5px 17px; font-size:.79rem; font-weight:800; background:#061b36; box-shadow:0 0 15px #008cff33; }.cth-section-heading h2 { font-size:clamp(1.5rem,3vw,2rem); margin:7px 0 3px; color:#f7faff; }.cth-section-heading h2 b { color:#10baf3; }.cth-section-heading p { color:#aebed7; font-size:.87rem; }
+  #services .grid { display:flex; flex-direction:column; gap:8px; max-width:1160px; margin:0 auto; }.cth-service-item { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:stretch; gap:12px; border:1px solid #294574; border-radius:15px; background:linear-gradient(100deg,#0d1a35,#071329); padding:8px 13px 8px 15px; box-shadow:0 6px 18px #0005; }.cth-service-item:has(.service-accordion[open]) { border-color:#198cf4; box-shadow:0 0 18px #087fff22; }
+  .service-accordion { min-width:0; border:0; border-radius:0; background:transparent; box-shadow:none; }.service-accordion[open] { background:transparent; }.service-accordion-trigger { min-height:58px; padding:5px 4px; gap:12px; }.service-row-number { color:#7899c8; width:25px; flex-basis:25px; }.service-row-logo { width:43px; height:43px; flex-basis:43px; border:0; border-radius:50%; background:linear-gradient(145deg,#087fff,#073b89); box-shadow:0 0 14px #087fff55; }.service-row-logo img { width:28px; height:28px; }.service-row-title { color:#f5f8ff; font-size:1rem; font-weight:850; }.service-row-chevron { border:0; color:#d6e8ff; }.service-accordion-panel { margin:0 4px 10px 42px; border:1px solid #244574; background:linear-gradient(100deg,#0a1b39,#07142a); }.service-row-description { color:#c7d8ef; }.service-row-safe { color:#48e0b0; font-size:.78rem; font-weight:700; }.cth-service-action { display:flex; align-items:center; gap:12px; padding-left:12px; border-left:1px solid #34527f; }.cth-service-action strong { color:#d54dff; font-size:1.04rem; white-space:nowrap; }.cth-service-action .buy-btn { border:0; color:white; padding:10px 15px; border-radius:25px; background:linear-gradient(110deg,#079dff,#0877ed); box-shadow:0 4px 14px #087fff55; white-space:nowrap; }.cth-service-action .buy-btn:hover { background:linear-gradient(110deg,#27caff,#3d4fff); color:white; }
+  .cth-feature-strip { display:grid; grid-template-columns:repeat(4,1fr); margin:15px auto 0; border:1px solid #1a4a82; border-radius:13px; background:linear-gradient(90deg,#061b3c,#07132a); box-shadow:0 0 20px #087fff22; }.cth-feature-strip>div { display:flex; align-items:center; justify-content:center; gap:12px; padding:12px 10px; color:#08baff; font-size:1.6rem; }.cth-feature-strip>div+div { border-left:1px solid #285184; }.cth-feature-strip span { display:grid; gap:1px; }.cth-feature-strip strong { color:#f3f7ff; font-size:.82rem; }.cth-feature-strip small { color:#9fb2d0; font-size:.7rem; }
+  .service-info-shell { border-color:#234b80; background:radial-gradient(ellipse at 100% 0%,#07336b55,transparent 38%),linear-gradient(145deg,#0d1d3b,#071329 72%,#0c1731); }.service-info-card { border-color:#294875; background:#06142b; }.service-info-icon { color:#1bbcff; background:#0b2a51; }.service-info-note { border-color:#15528c; background:#082044; }.service-info-note strong { color:#50cfff; }
+  .modal { border-color:#22518c; background:linear-gradient(150deg,#102344,#071329); }.checkout-eyebrow,.checkout-total strong { color:#36caff; }.checkout-product { border-color:#1d548b; background:linear-gradient(110deg,#0b2b53,#0a1830); }.checkout-step>span { color:#37caff; background:#0b2d55; }.checkout-form input:focus,.checkout-form select:focus { border-color:#12baff; box-shadow:0 0 0 3px #12baff22; }.checkout-form .payment-box { border-color:#1c5488; background:#081c38; }.checkout-form .download-btn { background:linear-gradient(100deg,#08b9f4,#3150ee); color:#fff; }
+  .cth-reviews { margin:16px auto 28px; max-width:1160px; padding:18px 24px; border:1px solid #1d477b; border-radius:15px; background:linear-gradient(100deg,#081a36,#071126); text-align:center; }.cth-reviews h2 { color:#f5f8ff; font-size:1.2rem; }.cth-reviews p { color:#aebed7; font-size:.85rem; margin:4px 0 10px; }.cth-reviews a { color:#50caff; text-decoration:none; font-weight:800; }
+  @media(max-width:850px) { .cth-nav { gap:2px; }.cth-nav a { padding:8px 6px; font-size:.75rem; }.cth-hero { grid-template-columns:1fr .8fr; }.cth-service-item { grid-template-columns:minmax(0,1fr); }.cth-service-action { border-left:0; border-top:1px solid #28436b; padding:9px 4px 2px; justify-content:flex-end; }.cth-feature-strip { grid-template-columns:repeat(2,1fr); }.cth-feature-strip>div:nth-child(3) { border-left:0; border-top:1px solid #285184; }.cth-feature-strip>div:nth-child(4) { border-top:1px solid #285184; } }
+  @media(max-width:620px) { .cth-header { flex-wrap:wrap; gap:9px; padding:9px 13px; }.cth-brand { min-width:0; }.cth-brand-shield { width:39px; height:43px; }.cth-brand-copy strong { font-size:1rem; }.cth-nav { order:3; width:100%; justify-content:space-between; overflow:auto; }.cth-nav a { font-size:.7rem; }.cth-login { margin-left:auto; }.cth-hero { grid-template-columns:1fr; padding:28px 18px 12px; }.cth-hero h1 { font-size:2.35rem; }.cth-hero-art { min-height:225px; margin-top:0; }.cth-world { width:220px; }.cth-social { width:42px; height:42px; font-size:1.55rem; }.cth-hero-checks { gap:10px; font-size:.74rem; }.cth-services { padding:24px 13px 18px; }.cth-section-heading p { font-size:.8rem; }.cth-service-item { padding:8px 10px; }.service-accordion-trigger { gap:8px; }.service-row-title { font-size:.88rem; }.cth-service-action { justify-content:space-between; }.cth-service-action .buy-btn { padding:9px 12px; font-size:.73rem; }.cth-feature-strip>div { justify-content:flex-start; padding:10px 8px; gap:8px; }.cth-feature-strip strong { font-size:.73rem; }.cth-feature-strip small { font-size:.64rem; } }
+  @media(max-width:390px) { .cth-nav a { padding:7px 4px; font-size:.64rem; }.cth-brand-copy small { font-size:.58rem; }.cth-hero h1 { font-size:2rem; }.cth-hero-art { min-height:190px; }.cth-feature-strip>div { font-size:1.25rem; } }
+
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">
-    CYBER<span>TEAM</span>HELP
-    <small>ACCESS · TOOLS · SECURITY</small>
-  </div>
-  <a href="#services" class="header-cta">সার্ভিস দেখুন</a>
+<header class="cth-header">
+  <a class="cth-brand" href="#" aria-label="Cyber Team Help Home">
+    <span class="cth-brand-shield">CTH</span><span class="cth-brand-copy"><strong>Cyber Team <em>Help</em></strong><small>Cyber Security · Trusted Service</small></span>
+  </a>
+  <nav class="cth-nav" aria-label="Main navigation">
+    <a class="active" href="#">⌂ <span>Home</span></a><a href="#services">▣ <span>Services</span>⌄</a><a href="#serviceInfoTitle">ⓘ <span>About</span></a><a href="https://wa.me/8801879939668" target="_blank" rel="noopener noreferrer">☏ <span>Support</span></a><a href="#reviews">☆ <span>Reviews</span></a>
+  </nav>
+  <a class="cth-login" href="#services">♙ Login</a>
 </header>
 
-<!-- COMPACT TOP OFFER BANNER -->
-<section class="offer-section" aria-labelledby="offerTitle">
-  <div class="offer-card">
-    <div class="offer-copy">
-      <div class="offer-kicker">🔥 LIMITED-TIME OFFER</div>
-      <h2 id="offerTitle">এখনই অর্ডার করুন — <span>৩০% ডিসকাউন্ট!</span></h2>
-      <p>🎥 সার্ভিসের ভিডিও দেখুন, ডেমো ঘুরে দেখুন এবং প্রয়োজনীয় সার্ভিস বেছে নিন।</p>
-    </div>
-    <div class="offer-actions">
-      <a class="offer-link primary" href="https://www.facebook.com/share/v/1bnPp8GLUD/" target="_blank" rel="noopener noreferrer">🎬 ভিডিও দেখুন</a>
-      <a class="offer-link" href="https://cybersecuritycth.shop/demo-site/" target="_blank" rel="noopener noreferrer">🖥️ ডেমো সাইট</a>
-      <a class="offer-link" href="https://cybersecuritycth.shop/" target="_blank" rel="noopener noreferrer">🌐 ওয়েবসাইট</a>
-      <a class="offer-link" href="https://wa.me/8801879939668?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A7%A9%E0%A7%A6%25%20%E0%A6%A1%E0%A6%BF%E0%A6%B8%E0%A6%95%E0%A6%BE%E0%A6%89%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%85%E0%A6%AB%E0%A6%BE%E0%A6%B0%E0%A7%87%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%AD%E0%A6%BF%E0%A6%B8%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" target="_blank" rel="noopener noreferrer">🛒 অর্ডার করুন</a>
-    </div>
+<div class="hero cth-hero">
+  <div class="cth-hero-copy">
+    <div class="cth-trust">⬟ &nbsp;6 Years of Trust <span>★★★★★</span></div>
+    <h1>Professional<br><span>Cyber Security</span> Services</h1>
+    <p class="cth-hero-lead">Your Trusted Partner for Social Media &amp; Digital Security</p>
+    <div class="cth-hero-checks"><span>✓ Secure Access</span><span>✓ Fast Delivery</span><span>✓ Premium Support</span></div>
+    <a href="#services" class="cth-explore">▣ &nbsp; Explore Our Services &nbsp; →</a>
   </div>
-</section>
-
-
-
-<div class="hero shop-hero">
-  <div class="shop-hero-inner">
-    <div class="shop-eyebrow"><span></span> CYBER TEAM HELP · TRUSTED DIGITAL SERVICES</div>
-    <h1>আপনার অনলাইন নিরাপত্তায় <span>বিশ্বস্ত সঙ্গী</span></h1>
-    <p>ওয়েবসাইট সিকিউরিটি, প্রোটেকশন ও ব্যাকআপ সাপোর্ট—আপনার প্রয়োজন অনুযায়ী বেছে নিন উপযুক্ত সার্ভিস। সহজ অর্ডার, পরিষ্কার তথ্য এবং প্রয়োজনীয় কাস্টমার সাপোর্ট।</p>
-    <div class="shop-hero-actions">
-      <a href="#services" class="shop-primary-cta">সার্ভিসগুলো দেখুন <span>→</span></a>
-      <a href="https://wa.me/8801879939668" class="shop-secondary-cta" target="_blank" rel="noopener noreferrer">সাপোর্টে কথা বলুন</a>
-    </div>
-    <div class="shop-benefits" aria-label="সার্ভিস সুবিধা">
-      <div class="shop-benefit"><span>⚡</span><div><strong>দ্রুত ডেলিভারি</strong><small>সেটআপ ও যাচাই সাপেক্ষে</small></div></div>
-      <div class="shop-benefit"><span>✓</span><div><strong>১০০% অনুমোদিত কাজ</strong><small>মালিকের অনুমতি সাপেক্ষে</small></div></div>
-      <div class="shop-benefit"><span>🔒</span><div><strong>নিরাপদ পেমেন্ট</strong><small>সহজ অর্ডার প্রক্রিয়া</small></div></div>
-      <div class="shop-benefit"><span>☏</span><div><strong>কাস্টমার সাপোর্ট</strong><small>প্রয়োজনে সহায়তা</small></div></div>
-    </div>
+  <div class="cth-hero-art" aria-hidden="true">
+    <div class="cth-world"><span class="cth-world-grid"></span></div>
+    <div class="cth-orbit orbit-one"></div><div class="cth-orbit orbit-two"></div>
+    <div class="cth-social social-f">f</div><div class="cth-social social-w">◉</div><div class="cth-social social-i">◎</div><div class="cth-social social-y">▶</div>
+    <div class="cth-figure"><div class="cth-hood"></div><div class="cth-laptop"><span>♙</span><small>SECURE</small></div></div>
   </div>
 </div>
 
 <!-- ADMIN-MANAGED PRODUCT CATALOG -->
-<section id="services">
-  <div class="section-title">Cyber Security Services</div>
-  <div class="section-sub">অনুমোদিত ও বৈধ সিকিউরিটি সার্ভিসসমূহ</div>
+<section id="services" class="cth-services">
+  <div class="cth-section-heading"><span>Our Services</span><h2>Premium Social Media <b>Services</b></h2><p>আপনার নিজের অ্যাকাউন্টের নিরাপত্তা ও ব্যবস্থাপনার জন্য অনুমোদিত টুলস এবং সহায়তা।</p></div>
   <div class="grid" id="productsGrid"><p>সার্ভিস লোড হচ্ছে...</p></div>
+  <div class="cth-feature-strip"><div>ϟ <span><strong>Fast Delivery</strong><small>Setup &amp; verification</small></span></div><div>⬟ <span><strong>Owner Authorized</strong><small>With permission</small></span></div><div>♙ <span><strong>Secure Payment</strong><small>Safe service</small></span></div><div>☏ <span><strong>Customer Support</strong><small>Here to help</small></span></div></div>
 </section>
 
 <!-- Modal -->
@@ -533,6 +540,7 @@
     <div class="service-info-note"><strong>আমাদের লক্ষ্য:</strong> শুধু একটি টুল সরবরাহ করা নয়—অ্যাকাউন্টের মালিকের অনুমতি ও নিরাপত্তাকে গুরুত্ব দিয়ে ৬ মাস ধরে প্রয়োজনীয় সাপোর্ট ও সহযোগিতা প্রদান করা। কোনো অ্যাকাউন্টের পাসওয়ার্ড, OTP বা ব্যক্তিগত তথ্য অপ্রয়োজনীয়ভাবে শেয়ার করবেন না।</div>
   </div>
 </section>
+<section id="reviews" class="cth-reviews"><h2>Cyber Team Help Promise</h2><p>৬ মাসের অ্যাক্টিভেশন সাপোর্ট · প্রফেশনাল কাস্টমার কেয়ার · নিরাপদ ও অনুমোদিত সার্ভিস</p><a href="https://cth-customer-review.vercel.app/" target="_blank" rel="noopener noreferrer">Customer Reviews দেখুন →</a></section>
 
 <footer>
   <strong>Cyber Team Help</strong> — Premium Access Tools<br>
@@ -550,18 +558,16 @@ function renderProduct(p, index) {
   const media = p.image_url
     ? '<span class="service-row-logo"><img src="' + esc(p.image_url) + '" alt="" loading="lazy"></span>'
     : '<span class="service-row-logo service-row-fallback" aria-hidden="true">🛡️</span>';
-  return '<details class="service-accordion">' +
+  return '<article class="cth-service-item"><details class="service-accordion">' +
     '<summary class="service-accordion-trigger">' +
-      '<span class="service-row-number">' + String(index + 1).padStart(2, '0') + '</span>' +
-      media +
+      '<span class="service-row-number">' + String(index + 1).padStart(2, '0') + '</span>' + media +
       '<span class="service-row-title">' + esc(p.name) + '</span>' +
       '<span class="service-row-chevron" aria-hidden="true">⌄</span>' +
-    '</summary>' +
-    '<div class="service-accordion-panel">' +
+    '</summary><div class="service-accordion-panel">' +
       '<p class="service-row-description">' + esc(p.description || 'বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।') + '</p>' +
-      '<div class="service-row-footer"><strong class="service-row-price">' + esc(money(p.price)) + '</strong>' +
-      '<button class="buy-btn" type="button" data-order="' + esc(p.id) + '">অর্ডার করুন</button></div>' +
-    '</div></details>';
+      '<div class="service-row-footer"><span class="service-row-safe">✓ মালিকের অনুমতিতে বৈধ সেবা</span></div>' +
+    '</div></details><div class="cth-service-action"><strong>' + esc(money(p.price)) + '</strong>' +
+    '<button class="buy-btn" type="button" data-order="' + esc(p.id) + '">🛒 Order Now</button></div></article>';
 }
 async function loadProducts() {
   productsGrid.innerHTML = '<p>সার্ভিস লোড হচ্ছে...</p>';
