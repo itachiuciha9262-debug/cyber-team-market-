@@ -215,6 +215,34 @@
   .checkout-form .download-btn { margin:4px 0 0; border-radius:11px; box-shadow:0 8px 22px rgba(0,224,164,.15); }
   #checkoutMessage { color:#ffd166; font-size:.86rem; }
   @media(max-width:500px) { .modal { padding:20px 17px; border-radius:16px; } .checkout-form { gap:13px; } }
+
+  /* Refined premium checkout layout */
+  .checkout-head { padding:2px 0 16px; border-bottom:1px solid rgba(148,163,184,.15); }
+  .checkout-eyebrow { color:#69dfc0; font-size:.68rem; font-weight:800; letter-spacing:1.5px; margin-bottom:8px; }
+  .checkout-head h2 { font-size:1.45rem; margin:0 0 6px; }
+  .checkout-head p { color:#9eacbd; font-size:.88rem; margin:0; }
+  .checkout-product { display:flex; justify-content:space-between; align-items:center; gap:14px; margin:16px 0 20px; padding:14px 16px; border:1px solid rgba(105,223,192,.2); border-radius:13px; background:linear-gradient(110deg,rgba(35,105,98,.18),rgba(20,31,48,.7)); }
+  .checkout-product>div:first-child { display:grid; gap:5px; min-width:0; }
+  .checkout-caption { color:#7e91a7; font-size:.65rem; font-weight:800; letter-spacing:1.1px; }
+  .checkout-product strong { color:#f4f7fb; font-size:.95rem; overflow-wrap:anywhere; }
+  .checkout-total { text-align:right; flex-shrink:0; display:grid; gap:4px; }
+  .checkout-total span { color:#9eacbd; font-size:.72rem; }
+  .checkout-total strong { color:#69dfc0; font-size:1.08rem; }
+  .checkout-step { display:flex; align-items:center; gap:11px; margin:3px 0 0; }
+  .checkout-step>span { width:30px; height:30px; display:grid; place-items:center; border-radius:9px; background:rgba(105,223,192,.12); color:#69dfc0; font-size:.78rem; font-weight:850; }
+  .checkout-step>div { display:grid; gap:2px; }
+  .checkout-step strong { color:#eaf0f7; font-size:.9rem; }
+  .checkout-step small { color:#8393a8; font-size:.74rem; }
+  .checkout-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .checkout-form label { min-width:0; }
+  .checkout-privacy { padding:12px; border-radius:11px; border:1px solid rgba(148,163,184,.15); background:rgba(9,17,29,.58); }
+  .checkout-consent { display:flex!important; align-items:flex-start; gap:10px!important; color:#bdc9d8!important; font-size:.78rem!important; line-height:1.5; font-weight:500!important; }
+  .checkout-consent input { margin:2px 0 0; }
+  .checkout-assurance { margin:0; color:#91a1b5; font-size:.76rem; line-height:1.55; }
+  .checkout-submit { display:flex; justify-content:center; align-items:center; gap:10px; width:100%; min-height:50px; border-radius:12px; font-weight:800; letter-spacing:.1px; }
+  .checkout-submit span { font-size:1.15rem; }
+  @media(max-width:520px) { .checkout-grid { grid-template-columns:1fr; gap:13px; } .checkout-product { align-items:flex-start; } .checkout-head h2 { font-size:1.25rem; } }
+
 </style>
 </head>
 <body>
@@ -319,7 +347,7 @@ let activeProduct = null;
 let paymentCache = [];
 function openCheckout(p) {
   activeProduct = p;
-  $('modalContent').innerHTML = '<h2>অর্ডার করুন</h2><p class="modal-info">'+esc(p.name)+'</p><div class="modal-price">'+esc(money(p.price))+'</div><form id="checkoutForm" class="checkout-form"><label>আপনার নাম<input name="customer_name" required minlength="2" maxlength="100" autocomplete="name"></label><label>ইমেইল অ্যাড্রেস<input name="customer_email" type="email" required maxlength="254" autocomplete="email"></label><label>ফোন নম্বর<input name="customer_phone" type="tel" required minlength="7" maxlength="25" autocomplete="tel"></label><label>পেমেন্ট মাধ্যম<select name="payment_method" id="paymentMethod" required><option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>'+paymentCache.map(m=>'<option value="'+esc(m.name+' — '+m.account_number)+'">'+esc(m.name+' — '+m.account_number)+'</option>').join('')+'</select></label><div id="paymentInstructions" class="payment-box">পেমেন্ট মাধ্যম নির্বাচন করলে নির্দেশনা দেখা যাবে।</div><label>Transaction ID<input name="transaction_reference" required minlength="3" maxlength="100" placeholder="পেমেন্টের Transaction ID"></label><p class="modal-info">আপনার দেওয়া নাম, ইমেইল, ফোন নম্বর ও Transaction ID শুধু অর্ডার যাচাই এবং সাপোর্টের জন্য ব্যবহার করা হবে। অর্ডার জমা দেওয়ার পর Admin পেমেন্ট যাচাই করবেন। অর্ডার কনফার্ম হলে APK লিংক আপনার দেওয়া ইমেইলে ব্যক্তিগতভাবে পাঠানো হবে।</p><label style="display:flex;gap:8px;align-items:flex-start"><input name="privacy_ack" type="checkbox" required style="width:auto;margin-top:5px">আমি অর্ডার যাচাইয়ের জন্য দেওয়া তথ্য ব্যবহারে সম্মতি দিচ্ছি।</label><button class="download-btn" type="submit">অর্ডার জমা দিন</button><p id="checkoutMessage" role="status"></p></form>';
+  $('modalContent').innerHTML = '<div class="checkout-head"><div class="checkout-eyebrow">CYBER TEAM HELP · SECURE CHECKOUT</div><h2>আপনার অর্ডার সম্পন্ন করুন</h2><p>নিচের তথ্যগুলো পূরণ করে অর্ডার নিশ্চিত করুন।</p></div><div class="checkout-product"><div><span class="checkout-caption">SELECTED SERVICE</span><strong>'+esc(p.name)+'</strong></div><div class="checkout-total"><span>সার্ভিস মূল্য</span><strong>'+esc(money(p.price))+'</strong></div></div><form id="checkoutForm" class="checkout-form"><div class="checkout-step"><span>01</span><div><strong>আপনার তথ্য</strong><small>যোগাযোগের সঠিক তথ্য দিন</small></div></div><div class="checkout-grid"><label>আপনার নাম<input name="customer_name" required minlength="2" maxlength="100" autocomplete="name" placeholder="সম্পূর্ণ নাম লিখুন"></label><label>ইমেইল অ্যাড্রেস<input name="customer_email" type="email" required maxlength="254" autocomplete="email" placeholder="name@example.com"></label></div><label>ফোন নম্বর<input name="customer_phone" type="tel" required minlength="7" maxlength="25" autocomplete="tel" placeholder="01XXXXXXXXX"></label><div class="checkout-step"><span>02</span><div><strong>পেমেন্ট তথ্য</strong><small>পেমেন্ট সম্পন্ন করে তথ্য দিন</small></div></div><label>পেমেন্ট মাধ্যম<select name="payment_method" id="paymentMethod" required><option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>'+paymentCache.map(m=>'<option value="'+esc(m.name+' — '+m.account_number)+'">'+esc(m.name+' — '+m.account_number)+'</option>').join('')+'</select></label><div id="paymentInstructions" class="payment-box">পেমেন্ট মাধ্যম নির্বাচন করলে নির্দেশনা এখানে দেখা যাবে।</div><label>Transaction ID<input name="transaction_reference" required minlength="3" maxlength="100" placeholder="পেমেন্টের Transaction ID লিখুন"></label><div class="checkout-privacy"><label class="checkout-consent"><input name="privacy_ack" type="checkbox" required><span>আমি নিশ্চিত করছি যে দেওয়া তথ্য সঠিক এবং অর্ডার যাচাইয়ের জন্য এগুলো ব্যবহারে সম্মতি দিচ্ছি।</span></label></div><p class="checkout-assurance">🔒 আপনার তথ্য অর্ডার যাচাই ও সাপোর্টের জন্য ব্যবহার করা হবে। Admin পেমেন্ট যাচাই করে অর্ডার কনফার্ম করবেন।</p><button class="download-btn checkout-submit" type="submit">অর্ডার জমা দিন <span aria-hidden="true">→</span></button><p id="checkoutMessage" role="status"></p></form>';
   $('modal').classList.add('active');
   document.getElementById('paymentMethod').addEventListener('change', e => {
     const chosen = paymentCache.find(m => (m.name+' — '+m.account_number) === e.target.value);
