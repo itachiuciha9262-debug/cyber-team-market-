@@ -322,7 +322,7 @@ async function trackOrder(token) {
   const target = document.getElementById('trackResult');
   if (error || !data) { target.textContent='অর্ডারের তথ্য পাওয়া যায়নি। রেফারেন্সটি পরীক্ষা করুন।'; return; }
   if (data.status === 'approved' || data.status === 'completed') {
-    target.innerHTML = '<p>আপনার অর্ডার অনুমোদিত হয়েছে।</p>'+(data.download_url ? '<a class="download-btn" href="'+esc(data.download_url)+'" target="_blank" rel="noopener noreferrer">APK ডাউনলোড করুন</a>' : '<p>ডাউনলোড লিংক এখনো সেট করা হয়নি। Support-এ যোগাযোগ করুন।');
+    target.textContent='আপনার অর্ডার কনফার্ম হয়েছে। APK লিংক আপনার দেওয়া ইমেইল ঠিকানায় ব্যক্তিগতভাবে পাঠানো হবে.';
   } else if (data.status === 'rejected') target.textContent='অর্ডারটি অনুমোদিত হয়নি। Support-এ যোগাযোগ করুন।';
   else target.textContent='আপনার পেমেন্ট যাচাই চলছে। কিছুক্ষণ পর আবার দেখুন।';
 }
