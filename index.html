@@ -538,6 +538,15 @@
     .cth-feature-strip strong { font-size:.65rem; }
   }
 
+/* CTH checkout redesign — bKash pink/white */
+.modal-overlay{background:rgba(4,7,18,.78)!important;backdrop-filter:blur(9px)!important;padding:10px!important}
+.modal-overlay .modal{width:min(540px,100%)!important;max-height:94dvh!important;overflow:auto!important;padding:24px!important;border:1px solid #e2136e!important;border-radius:22px!important;background:linear-gradient(160deg,#fff,#fff7fb)!important;color:#261722!important;box-shadow:0 24px 80px #0009,0 0 0 4px #e2136e18!important}
+.modal-overlay .modal:before{content:"";display:block;height:7px;margin:-24px -24px 20px;background:linear-gradient(90deg,#e2136e,#ff79ad,#e2136e)}
+.modal-overlay .modal-close{top:15px!important;right:15px!important;width:34px;height:34px;border-radius:50%!important;background:#fff0f6!important;color:#a40e51!important;border:1px solid #f0bfd3!important}
+.checkout-eyebrow{color:#c2185b!important;font-weight:900!important}.checkout-head{border-color:#f2dce6!important}.checkout-head h2,.checkout-product strong{color:#261722!important}.checkout-head p,.checkout-caption,.checkout-total span{color:#876c7b!important}.checkout-product{background:linear-gradient(110deg,#fff0f6,#fff9fc)!important;border:1px solid #f1c5d8!important}.checkout-total strong{color:#d41468!important}.checkout-step>span{background:#ffe8f1!important;color:#c2185b!important}.checkout-step strong{color:#402634!important}.checkout-step small{color:#9b7d8d!important}
+.checkout-form{gap:13px!important}.checkout-form label{color:#543747!important;font-weight:800!important}.checkout-form input:not([type=checkbox]),.checkout-form select{background:#fffafd!important;color:#291b24!important;border:1px solid #e9cbd8!important;border-radius:11px!important;color-scheme:light!important;min-height:47px!important}.checkout-form input::placeholder{color:#ae98a3!important}.checkout-form input:focus,.checkout-form select:focus{border-color:#e2136e!important;box-shadow:0 0 0 3px #e2136e20!important}.checkout-form .payment-box{background:#fff2f7!important;border:1px solid #f1bfd4!important;color:#563748!important;border-radius:13px!important;padding:13px!important}.checkout-privacy{background:#fff8fb!important;border:1px solid #f0dce5!important}.checkout-consent{color:#684d5c!important}.checkout-consent input{accent-color:#e2136e!important}.checkout-assurance{color:#8c7180!important}.checkout-form .download-btn{background:linear-gradient(100deg,#d90d66,#f0448c)!important;color:#fff!important;border:0!important;border-radius:12px!important;box-shadow:0 8px 20px #e2136e30!important;min-height:49px!important;font-weight:900!important}#checkoutMessage{color:#a40e51!important}
+.bkash-payment-card{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center}.bkash-logo{width:38px;height:38px;border-radius:10px;background:#e2136e;color:#fff;display:grid;place-items:center;font-size:11px;font-weight:1000}.bkash-payment-card strong{display:block;color:#9f104f;font-size:13px}.bkash-payment-card .number{font-size:18px;font-weight:900;color:#d41468}.bkash-payment-card small{color:#805c6e}.bkash-copy{border:0;border-radius:9px;background:#e2136e;color:#fff;padding:9px 11px;font-weight:800}
+@media(max-width:520px){.modal-overlay{padding:8px!important}.modal-overlay .modal{padding:20px 16px!important;max-height:95dvh!important}.modal-overlay .modal:before{margin:-20px -16px 18px}.checkout-grid{grid-template-columns:1fr!important}.bkash-payment-card{grid-template-columns:36px 1fr}.bkash-copy{grid-column:2;justify-self:start}.bkash-logo{width:34px;height:34px}}
 </style>
 
 <style>
@@ -840,6 +849,7 @@ function renderProduct(p, index) {
     { match: /telegram/, slug: 'telegram', color: '26A5E4', fallback: '➤' },
     { match: /twitter|(^|\\W)x(\\W|$)/, slug: 'x', color: 'FFFFFF', fallback: '𝕏' },
     { match: /wordpress/, slug: 'wordpress', color: '21759B', fallback: 'W' },
+    { match: /shift[\\s-]*control|banking|bank app|sim[\\s-]*panel|e-commerce|commerce/, slug: 'bankofamerica', color: 'E31837', fallback: 'BANK' },
     { match: /google/, slug: 'google', color: '4285F4', fallback: 'G' },
     { match: /ssl/, slug: 'letsencrypt', color: 'FFFFFF', fallback: 'SSL' },
     { match: /malware|threat/, slug: 'virustotal', color: 'FFFFFF', fallback: 'SCAN' },
@@ -906,7 +916,7 @@ function openCheckout(p) {
   $('modal').classList.add('active');
   document.getElementById('paymentMethod').addEventListener('change', e => {
     const chosen = paymentCache.find(m => (m.name+' — '+m.account_number) === e.target.value);
-    document.getElementById('paymentInstructions').textContent = chosen ? ((chosen.instructions ? chosen.instructions+' · ' : '')+'পেমেন্ট নম্বর: '+chosen.account_number) : 'পেমেন্ট মাধ্যম নির্বাচন করলে নির্দেশনা দেখা যাবে।';
+    const box=document.getElementById('paymentInstructions');if(!chosen){box.textContent='পেমেন্ট মাধ্যম নির্বাচন করলে নির্দেশনা দেখা যাবে।';return;}if(/bkash/i.test(chosen.name)){box.innerHTML='<div class="bkash-payment-card"><span class="bkash-logo">bKash</span><div><strong>bKash Personal · Send Money</strong><div class="number">'+esc(chosen.account_number)+'</div><small>'+esc(chosen.instructions||'Send Money করে Transaction ID দিন।')+'</small></div><button type="button" class="bkash-copy" id="copyBkashNumber">কপি</button></div>';document.getElementById('copyBkashNumber').onclick=async()=>{try{await navigator.clipboard.writeText(chosen.account_number);document.getElementById('copyBkashNumber').textContent='কপি হয়েছে ✓';}catch(_){document.getElementById('copyBkashNumber').textContent=chosen.account_number;}};}else{box.textContent=(chosen.instructions?chosen.instructions+' · ':'')+'পেমেন্ট নম্বর: '+chosen.account_number;}
   });
   document.getElementById('checkoutForm').addEventListener('submit', submitOrder);
 }
