@@ -654,7 +654,46 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
 @media(max-width:720px){#services #productsGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#services #productsGrid .premium-tool-card{padding:13px}.tool-visual{height:92px}.tool-logo{width:68px;height:68px;border-radius:19px}.tool-logo img{width:36px;height:36px}.tool-name{font-size:.93rem}.tool-description{font-size:.74rem;-webkit-line-clamp:3;min-height:4.6em}.tool-price{font-size:1.1rem}}
 @media(max-width:430px){#services{padding-left:13px!important;padding-right:13px!important}.email-auth-card{padding:25px 20px}}
 </style>
-</head>
+<style>
+/* CTH ecommerce storefront visual refresh */
+:root{--cth-shop-bg:#070d18;--cth-shop-panel:#101b2b;--cth-shop-border:#25374f;--cth-shop-blue:#2b8cff;--cth-shop-cyan:#54d9e8;--cth-shop-text:#f2f6fc;--cth-shop-muted:#9aabc0}
+body{background:radial-gradient(ellipse at 12% 0%,#102642 0,transparent 38%),radial-gradient(ellipse at 90% 8%,#182044 0,transparent 32%),#070d18!important;color:var(--cth-shop-text)}
+.cth-header{background:#081321ed!important;border-bottom:1px solid #253a56!important;box-shadow:0 8px 28px #0005!important;backdrop-filter:blur(18px)}
+.cth-brand-shield{background:linear-gradient(145deg,#168cff,#584de6)!important;box-shadow:0 7px 22px #187fff55!important}
+.cth-nav a{border-radius:9px;transition:.2s}
+.cth-nav a:hover,.cth-nav a.active{background:#142944;color:#7edfff}
+.cth-login{background:linear-gradient(105deg,#147eea,#5549db)!important;border:1px solid #579eff!important;border-radius:11px!important;box-shadow:0 7px 20px #126bdb33!important;color:#fff!important;font-weight:800}
+.cth-hero{border:1px solid #243c5a!important;border-radius:25px!important;background:linear-gradient(120deg,#10243c 0%,#101b31 56%,#171b3c 100%)!important;box-shadow:0 22px 55px #0005!important;overflow:hidden}
+.cth-hero h1,.cth-hero h2{letter-spacing:-.035em}
+.cth-shop-highlights{max-width:1240px;margin:24px auto 8px;padding:0 20px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.cth-shop-highlight{display:flex;align-items:center;gap:12px;min-width:0;padding:17px;border:1px solid #2a405c;border-radius:15px;background:linear-gradient(145deg,#111f32,#0c1727);box-shadow:0 9px 24px #0003}
+.cth-shop-highlight>span{width:42px;height:42px;flex:0 0 42px;display:grid;place-items:center;border-radius:12px;background:#15395b;font-size:1.2rem}
+.cth-shop-highlight strong{display:block;font-size:.85rem;color:#eaf4ff}
+.cth-shop-highlight small{display:block;margin-top:4px;color:#9eb1c9;font-size:.72rem;line-height:1.45}
+#services{max-width:1320px!important;padding-top:48px!important}
+#services .cth-section-heading h2{color:#f3f7ff}
+#services .cth-section-heading p{color:#a9bad0}
+#services .cth-category-chips a{background:#101f32!important;border:1px solid #2b4665!important;color:#c9e5ff!important}
+#services #productsGrid .premium-tool-card{background:linear-gradient(155deg,#14243a,#0c1728 75%)!important;border-color:#2b405c!important;border-radius:18px!important}
+#services #productsGrid .premium-tool-card:before{background:linear-gradient(90deg,#2d9bff,#6c66ed,#55dce7)!important}
+.tool-logo{background:radial-gradient(circle at 30% 20%,#214c70,#101b2d 70%)!important;border-color:#315779!important}
+.tool-category{background:#123451!important;color:#9de8ff!important;border-color:#2c5c7b!important}
+.tool-price{color:#70e4e9!important}
+#services #productsGrid .premium-tool-card .buy-btn{background:linear-gradient(100deg,#167ee9,#514de0)!important;border-color:#428fe8!important;border-radius:10px!important}
+.cth-extra-services,.service-info-shell,.cth-reviews,.cth-certificate{border-radius:20px!important}
+.cth-extra-services{background:linear-gradient(145deg,#111f32,#0a1423)!important;border:1px solid #2b405c!important}
+.service-info{background:transparent!important}
+.service-info-card{background:linear-gradient(145deg,#13243a,#0d1828)!important;border:1px solid #2a405d!important;border-radius:17px!important}
+.service-info-note{background:#10243a!important;border:1px solid #2b5274!important;border-radius:13px!important}
+.cth-reviews{background:linear-gradient(120deg,#102842,#171c3a)!important;border:1px solid #30496a!important;padding:28px!important}
+.cth-certificate{background:#101d30!important;border:1px solid #2b405c!important}
+footer{background:#060d17!important;border-top:1px solid #263b55!important;color:#9aabc0!important}
+.modal{background:linear-gradient(145deg,#13243a,#091526)!important;border:1px solid #315072!important;border-radius:20px!important;box-shadow:0 25px 70px #0009!important}
+.buy-btn,.cth-login{transition:transform .2s,filter .2s}
+.buy-btn:hover,.cth-login:hover{transform:translateY(-2px);filter:brightness(1.1)}
+@media(max-width:900px){.cth-shop-highlights{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.cth-shop-highlights{padding:0 13px;gap:9px}.cth-shop-highlight{padding:12px;gap:9px}.cth-shop-highlight>span{width:35px;height:35px;flex-basis:35px}.cth-shop-highlight strong{font-size:.75rem}.cth-shop-highlight small{font-size:.66rem}.cth-hero{border-radius:17px!important}}
+</style></head>
 <body>
 
 <header class="cth-header">
@@ -684,6 +723,12 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
 </div>
 
 <!-- ADMIN-MANAGED PRODUCT CATALOG -->
+<section class="cth-shop-highlights" aria-label="Store highlights">
+  <div class="cth-shop-highlight"><span>🛡️</span><div><strong>নিরাপদ ও অনুমোদিত সার্ভিস</strong><small>নিজস্ব বা অনুমতিপ্রাপ্ত অ্যাকাউন্ট ও ওয়েবসাইট</small></div></div>
+  <div class="cth-shop-highlight"><span>⚡</span><div><strong>দ্রুত অর্ডার প্রসেসিং</strong><small>অর্ডার যাচাইয়ের পর কাজ শুরু</small></div></div>
+  <div class="cth-shop-highlight"><span>💬</span><div><strong>৬ মাসের সাপোর্ট</strong><small>প্রযোজ্য টুলের জন্য টেকনিক্যাল সহায়তা</small></div></div>
+  <div class="cth-shop-highlight"><span>🔐</span><div><strong>ইমেইল OTP লগইন</strong><small>নিজের অর্ডার ও আপডেট দেখুন</small></div></div>
+</section>
 <section id="services" class="cth-services">
   <div class="cth-section-heading"><span>OUR SERVICE CATEGORIES</span><h2>Social Media &amp; <b>Website Security</b></h2><p>নিজের বা স্পষ্ট অনুমতিপ্রাপ্ত অ্যাকাউন্ট ও ওয়েবসাইটের জন্য নিরাপদ সেটআপ, ব্যবস্থাপনা এবং সাপোর্ট।</p></div>
   <div class="cth-category-chips" aria-label="Service categories">
