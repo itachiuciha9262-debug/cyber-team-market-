@@ -581,6 +581,26 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
 @media(max-width:620px){.cth-login{font-size:.72rem;padding:8px 10px}}
 </style>
 
+<style>
+/* Premium boxed service catalogue */
+#services .cth-category-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:18px auto 22px;max-width:1100px}
+#services .cth-category-chips a{padding:9px 14px;border:1px solid #28558b;border-radius:12px;background:linear-gradient(145deg,#102849,#09172d);color:#d8eaff;text-decoration:none;font-size:.82rem;font-weight:750;box-shadow:0 5px 16px #0003;transition:.2s}
+#services .cth-category-chips a:hover{border-color:#16c8ff;color:#fff;transform:translateY(-2px);box-shadow:0 8px 22px #087fff33}
+#services #productsGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:15px;max-width:1160px}
+#services #productsGrid .cth-service-item{display:flex;flex-direction:column;min-width:0;height:100%;padding:15px;border:1px solid #244c7d;border-radius:17px;background:linear-gradient(145deg,#102442 0%,#09162b 100%);box-shadow:0 10px 26px #0004;transition:transform .2s,border-color .2s,box-shadow .2s}
+#services #productsGrid .cth-service-item:hover{transform:translateY(-3px);border-color:#168fe8;box-shadow:0 14px 30px #006dce26}
+#services #productsGrid .service-accordion{width:100%}
+#services #productsGrid .service-accordion-trigger{min-height:66px;padding:4px 2px}
+#services #productsGrid .service-accordion-panel{margin:8px 0 12px;padding:13px}
+#services #productsGrid .cth-service-action{width:100%;margin-top:auto;padding:12px 2px 0;border-left:0;border-top:1px solid #29466b;justify-content:space-between}
+.cth-extra-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cth-extra-grid article{min-width:0;padding:20px;border-radius:16px;transition:transform .2s,border-color .2s}
+.cth-extra-grid article:hover{transform:translateY(-3px);border-color:#159eea}
+.cth-extra-grid article b{display:block;color:#f1f7ff;font-size:.98rem;line-height:1.5;margin-bottom:8px}
+.cth-extra-grid article p{color:#b4c5dc;font-size:.84rem;line-height:1.75;margin:0}
+@media(max-width:760px){#services #productsGrid{grid-template-columns:1fr;gap:11px}.cth-extra-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.cth-extra-grid{grid-template-columns:1fr}#services .cth-category-chips{justify-content:flex-start}}
+</style>
 </head>
 <body>
 
@@ -627,6 +647,13 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
       <article><b>⚙️ cPanel Security</b><p>নিজস্ব hosting account-এর access review, backup ও নিরাপদ configuration।</p></article>
       <article><b>🧩 Website Management</b><p>অনুমোদিত website maintenance, content update ও technical support।</p></article>
       <article><b>📊 Website Audit</b><p>নিজস্ব সাইটের performance, configuration ও security checklist review।</p></article>
+      <article><b>🔎 SSL Certificate Checker</b><p>SSL certificate-এর validity, expiry ও HTTPS configuration পরীক্ষা।</p></article>
+      <article><b>🧱 Security Headers Audit</b><p>নিজস্ব সাইটের HTTP security headers যাচাই ও উন্নতির পরামর্শ।</p></article>
+      <article><b>🦠 Malware &amp; Threat Scan</b><p>অনুমোদিত ওয়েবসাইটে ক্ষতিকর ফাইল বা সন্দেহজনক পরিবর্তনের নিরাপত্তা পর্যালোচনা।</p></article>
+      <article><b>🧪 Vulnerability Assessment</b><p>অনুমতিপ্রাপ্ত সাইটে নিরাপদ পরীক্ষা করে ঝুঁকি শনাক্ত ও সমাধানের পরামর্শ।</p></article>
+      <article><b>💾 Backup &amp; Recovery Setup</b><p>নিয়মিত ব্যাকআপ, restore পরিকল্পনা ও recovery readiness যাচাই।</p></article>
+      <article><b>📡 DNS &amp; Domain Health Check</b><p>নিজস্ব ডোমেইনের DNS record, domain configuration ও basic health review।</p></article>
+      <article><b>⚡ Website Speed &amp; Uptime</b><p>ওয়েবসাইটের গতি, availability ও performance উন্নয়নের পরামর্শ।</p></article>
     </div>
   </section>
   <div class="cth-feature-strip"><div>ϟ <span><strong>Fast Delivery</strong><small>Setup &amp; verification</small></span></div><div>⬟ <span><strong>Owner Authorized</strong><small>With permission</small></span></div><div>♙ <span><strong>Secure Payment</strong><small>Safe service</small></span></div><div>☏ <span><strong>Customer Support</strong><small>Here to help</small></span></div></div>
