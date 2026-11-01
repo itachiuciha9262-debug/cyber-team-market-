@@ -571,6 +571,16 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
 @media(max-width:480px){.cth-extra-grid{grid-template-columns:1fr}.cth-category-chips a{font-size:.8rem;padding:8px 11px}.cth-hero{padding-top:42px}}
 </style>
 
+
+<style>
+.cth-login{font-family:inherit;cursor:pointer;background:linear-gradient(100deg,#087bff,#633cff 65%,#00cfff);color:#fff;border:1px solid #4c9dff;box-shadow:0 8px 26px #075bff44}
+.cth-login:disabled{opacity:.7;cursor:wait}
+.service-row-logo{background:linear-gradient(145deg,#102a50,#07162d);border:1px solid #2c67a5;box-shadow:0 0 14px #087fff33}
+.service-row-logo img{width:27px;height:27px;object-fit:contain;display:block}
+.service-row-fallback{display:grid;place-items:center;width:100%;height:100%;font-weight:900;font-size:1.15rem;color:#f5fbff;text-transform:lowercase}
+@media(max-width:620px){.cth-login{font-size:.72rem;padding:8px 10px}}
+</style>
+
 </head>
 <body>
 
@@ -581,7 +591,7 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
   <nav class="cth-nav" aria-label="Main navigation">
     <a class="active" href="#">⌂ <span>Home</span></a><a href="#services">▣ <span>Services</span>⌄</a><a href="#serviceInfoTitle">ⓘ <span>About</span></a><a href="https://wa.me/8801879939668" target="_blank" rel="noopener noreferrer">☏ <span>Support</span></a><a href="#reviews">☆ <span>Reviews</span></a>
   </nav>
-  <a class="cth-login" href="/client/" aria-label="Client login">♙ Client Login</a>
+  <button class="cth-login" id="googleLoginBtn" type="button" aria-label="Continue with Google">G &nbsp; Login with Google</button>
 </header>
 
 <div class="hero cth-hero">
@@ -682,9 +692,27 @@ const productsGrid = document.getElementById('productsGrid');
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const money = value => value === null || value === '' ? 'মূল্য জানতে যোগাযোগ করুন' : '৳ ' + Number(value).toLocaleString('en-BD');
 function renderProduct(p, index) {
+  const brand = String(p.name || '').toLowerCase();
+  const brandMap = [
+    { match: /facebook/, slug: 'facebook', color: '0866FF', fallback: 'f' },
+    { match: /youtube/, slug: 'youtube', color: 'FF0033', fallback: '▶' },
+    { match: /instagram/, slug: 'instagram', color: 'E4405F', fallback: '◎' },
+    { match: /tiktok/, slug: 'tiktok', color: 'FFFFFF', fallback: '♪' },
+    { match: /whatsapp/, slug: 'whatsapp', color: '25D366', fallback: '☎' },
+    { match: /imo/, slug: '', color: '', fallback: 'imo' },
+    { match: /telegram/, slug: 'telegram', color: '26A5E4', fallback: '➤' },
+    { match: /twitter|(^|\\W)x(\\W|$)/, slug: 'x', color: 'FFFFFF', fallback: '𝕏' },
+    { match: /wordpress/, slug: 'wordpress', color: '21759B', fallback: 'W' },
+    { match: /google/, slug: 'google', color: '4285F4', fallback: 'G' }
+  ];
+  const knownBrand = brandMap.find(item => item.match.test(brand));
+  const fallback = knownBrand ? knownBrand.fallback : '🛡';
+  const logoUrl = knownBrand && knownBrand.slug ? 'https://cdn.simpleicons.org/' + knownBrand.slug + '/' + knownBrand.color : '';
   const media = p.image_url
-    ? '<span class="service-row-logo"><img src="' + esc(p.image_url) + '" alt="" loading="lazy"></span>'
-    : '<span class="service-row-logo service-row-fallback" aria-hidden="true">🛡️</span>';
+    ? '<span class="service-row-logo"><img src="' + esc(p.image_url) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=\\\'service-row-fallback\\\'>' + esc(fallback) + '</span>\'"></span>'
+    : logoUrl
+      ? '<span class="service-row-logo"><img src="' + esc(logoUrl) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=\\\'service-row-fallback\\\'>' + esc(fallback) + '</span>\'"></span>'
+      : '<span class="service-row-logo service-row-fallback" aria-hidden="true">' + esc(fallback) + '</span>';
   return '<article class="cth-service-item"><details class="service-accordion">' +
     '<summary class="service-accordion-trigger">' +
       '<span class="service-row-number">' + String(index + 1).padStart(2, '0') + '</span>' + media +
@@ -773,6 +801,34 @@ productsGrid.addEventListener('click', async event => {
   if (!paymentCache.length) { alert('এখন কোনো পেমেন্ট মাধ্যম সক্রিয় নেই।'); return; }
   openCheckout(product);
 });
+
+const googleLoginBtn = document.getElementById('googleLoginBtn');
+if (googleLoginBtn) {
+  googleLoginBtn.addEventListener('click', async () => {
+    googleLoginBtn.disabled = true;
+    googleLoginBtn.textContent = 'Google login opening...';
+    try {
+      const { error } = await supabaseClient.auth.signInWithOAuth({
+        provider: 'google',
+        options: { redirectTo: window.location.origin + '/' }
+      });
+      if (error) throw error;
+    } catch (error) {
+      console.error('Google OAuth error:', error);
+      alert('Google Login এখনো চালু হয়নি বা Provider কনফিগার করা নেই। Supabase Auth-এ Google Provider enable করে Client ID ও Client Secret যোগ করতে হবে।');
+      googleLoginBtn.disabled = false;
+      googleLoginBtn.innerHTML = 'G &nbsp; Login with Google';
+    }
+  });
+}
+supabaseClient.auth.onAuthStateChange((_event, session) => {
+  if (googleLoginBtn && session && session.user) {
+    const label = session.user.email || 'Client Account';
+    googleLoginBtn.textContent = '✓ ' + label;
+    googleLoginBtn.disabled = false;
+  }
+});
+
 loadProducts();
 </script>
 
