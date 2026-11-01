@@ -300,6 +300,98 @@
   @media(max-width:760px) { .shop-hero { padding:40px 16px 25px; } .shop-benefits { grid-template-columns:repeat(2,minmax(0,1fr)); } .shop-benefit { padding:12px 10px; } .shop-benefit:nth-child(3) { border-left:0; border-top:1px solid rgba(148,163,184,.14); } .shop-benefit:nth-child(4) { border-top:1px solid rgba(148,163,184,.14); } }
   @media(max-width:420px) { .shop-hero h1 { font-size:1.85rem; } .shop-benefit { gap:8px; } .shop-benefit>span { flex-basis:30px; width:30px; height:30px; } .shop-benefit strong { font-size:.73rem; } .shop-benefit small { font-size:.62rem; } }
 
+
+  /* Clean Modern Store refresh */
+  :root {
+    --bg:#f5f7fb; --card:#ffffff; --card-hover:#f8faff;
+    --accent:#5267e8; --accent-dim:#4054d6; --text:#182235;
+    --muted:#68758a; --border:#e4e9f2; --danger:#dc4561;
+  }
+  body { background:#f5f7fb; color:#182235; }
+  header { background:rgba(255,255,255,.94); border-bottom:1px solid #e7ebf3; box-shadow:0 3px 18px rgba(25,40,70,.045); }
+  .logo { color:#17233b; }
+  .logo span, footer strong { color:#5267e8; }
+  .logo small { color:#7b879b; }
+  .header-cta { background:#5267e8; color:#fff; border-radius:10px; }
+  .header-cta:hover { background:#4054d6; }
+  .offer-card { border:1px solid #dce4ff; background:linear-gradient(110deg,#f0f4ff,#fff 72%); box-shadow:0 10px 30px rgba(40,60,120,.07); }
+  .offer-kicker,.offer-card h2 span { color:#5267e8; }
+  .offer-card p { color:#64718a; }
+  .offer-link { border-color:#5267e8; color:#5267e8; }
+  .offer-link.primary { background:#5267e8; color:#fff; }
+  .shop-hero { background:radial-gradient(ellipse at 85% 0%,#e8edff 0%,transparent 42%),linear-gradient(180deg,#fff 0%,#f5f7fb 100%); }
+  .shop-eyebrow { color:#5267e8; }
+  .shop-eyebrow span { background:#5267e8; box-shadow:0 0 12px rgba(82,103,232,.25); }
+  .shop-hero h1 { color:#17233b; }
+  .shop-hero h1 span { color:#5267e8; }
+  .shop-hero>.shop-hero-inner>p { color:#66738a; }
+  .shop-primary-cta { background:#5267e8; color:#fff; box-shadow:0 8px 22px rgba(82,103,232,.18); }
+  .shop-primary-cta:hover { background:#4054d6; }
+  .shop-secondary-cta { border-color:#d9dfeb; color:#34415a; background:#fff; }
+  .shop-secondary-cta:hover { border-color:#5267e8; color:#5267e8; }
+  .shop-benefits { border-color:#e4e9f2; background:#fff; box-shadow:0 8px 24px rgba(25,40,70,.045); }
+  .shop-benefit+.shop-benefit { border-left-color:#edf0f6; }
+  .shop-benefit>span { color:#5267e8; background:#eef1ff; }
+  .shop-benefit strong { color:#26344d; }
+  .shop-benefit small { color:#7b879b; }
+  section#services { padding-top:34px; }
+  .section-title { color:#1b2942; }
+  .section-title::before { background:#5267e8; }
+  .section-sub { color:#748097; }
+  .grid { grid-template-columns:repeat(auto-fill,minmax(245px,1fr)); gap:20px; }
+  .tool-card { background:#fff; border:1px solid #e6eaf2; border-radius:17px; padding:20px; box-shadow:0 5px 18px rgba(27,43,75,.045); }
+  .tool-card::before { background:linear-gradient(90deg,#5267e8,#9aa8ff); }
+  .tool-card:hover { background:#fff; transform:translateY(-3px); border-color:#cbd4ff; box-shadow:0 14px 30px rgba(48,65,130,.10); }
+  .tool-media { background:#f2f5fb; border-color:#e8edf5; border-radius:13px; }
+  .tool-name { color:#202e47; font-size:1.04rem; }
+  .tool-desc { color:#718097; }
+  .tool-price { border-top-color:#edf0f5; }
+  .price { color:#5267e8; }
+  .buy-btn { background:#f0f2ff; border-color:#dce2ff; color:#465bd8; border-radius:9px; }
+  .buy-btn:hover { background:#5267e8; border-color:#5267e8; color:#fff; }
+  .service-info { padding-top:34px; }
+  .service-info-shell { border:1px solid #e2e8f4; background:linear-gradient(145deg,#fff,#f7f9ff); box-shadow:0 10px 30px rgba(27,43,75,.055); }
+  .service-info-eyebrow { color:#5267e8; }
+  .service-info-head h2 { color:#1d2b45; }
+  .service-info-head p,.service-info-card p { color:#68758a; }
+  .service-info-card { background:#fff; border-color:#e7ebf3; box-shadow:0 4px 14px rgba(27,43,75,.035); }
+  .service-info-card h3 { color:#26344d; }
+  .service-info-icon { color:#5267e8; background:#eef1ff; }
+  .service-info-list li { color:#59677e; }
+  .service-info-list li:before { color:#5267e8; }
+  .service-info-note { border-color:#e0e6ff; background:#f1f4ff; color:#63708a; }
+  .service-info-note strong { color:#465bd8; }
+  footer { color:#7a869b; border-top-color:#e5eaf2; background:#fff; }
+  .float-wa { box-shadow:0 5px 18px rgba(37,211,102,.25); }
+  /* Keep the payment dialog high-contrast and readable */
+  .modal { background:linear-gradient(160deg,#fff 0%,#f7f9ff 100%); border:1px solid #e1e7f2; box-shadow:0 24px 70px rgba(25,40,70,.2); }
+  .modal h2 { color:#1d2b45; }
+  .modal-info { color:#68758a; }
+  .checkout-head { border-bottom-color:#e7ebf2; }
+  .checkout-eyebrow { color:#5267e8; }
+  .checkout-head h2,.checkout-step strong { color:#26344d; }
+  .checkout-head p,.checkout-step small,.checkout-total span { color:#758198; }
+  .checkout-product { border-color:#e2e8ff; background:#f3f5ff; }
+  .checkout-caption { color:#7c88a0; }
+  .checkout-product strong { color:#26344d; }
+  .checkout-total strong { color:#5267e8; }
+  .checkout-step>span { background:#eef1ff; color:#5267e8; }
+  .checkout-privacy { border-color:#e7ebf2; background:#f8f9fc; }
+  .checkout-consent { color:#59677e!important; }
+  .checkout-assurance { color:#748097; }
+  .checkout-form label { color:#53617a; }
+  .checkout-form input:not([type="checkbox"]),.checkout-form select { background:#fff; border-color:#dce3ef; color:#26344d; color-scheme:light; }
+  .checkout-form input::placeholder { color:#9aa4b5; }
+  .checkout-form input:focus,.checkout-form select:focus { border-color:#5267e8; background:#fff; box-shadow:0 0 0 3px rgba(82,103,232,.12); }
+  .checkout-form select { background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%235267e8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); }
+  .checkout-form input[type="checkbox"] { accent-color:#5267e8; }
+  .checkout-form .payment-box,.payment-box { border-color:#dfe5f1; background:#f5f7fc; color:#58667d; }
+  .checkout-form .payment-box strong,.payment-box strong { color:#5267e8; }
+  .checkout-form .download-btn,.download-btn { background:#5267e8; color:#fff; box-shadow:0 8px 22px rgba(82,103,232,.15); }
+  .checkout-form .download-btn:hover,.download-btn:hover { background:#4054d6; }
+  .modal-close { color:#748097; }
+  @media(max-width:700px) { .service-info { padding-top:24px; } }
+
 </style>
 </head>
 <body>
@@ -330,6 +422,42 @@
 </section>
 
 
+
+<div class="hero shop-hero">
+  <div class="shop-hero-inner">
+    <div class="shop-eyebrow"><span></span> CYBER TEAM HELP · TRUSTED DIGITAL SERVICES</div>
+    <h1>আপনার অনলাইন নিরাপত্তায় <span>বিশ্বস্ত সঙ্গী</span></h1>
+    <p>ওয়েবসাইট সিকিউরিটি, প্রোটেকশন ও ব্যাকআপ সাপোর্ট—আপনার প্রয়োজন অনুযায়ী বেছে নিন উপযুক্ত সার্ভিস। সহজ অর্ডার, পরিষ্কার তথ্য এবং প্রয়োজনীয় কাস্টমার সাপোর্ট।</p>
+    <div class="shop-hero-actions">
+      <a href="#services" class="shop-primary-cta">সার্ভিসগুলো দেখুন <span>→</span></a>
+      <a href="https://wa.me/8801879939668" class="shop-secondary-cta" target="_blank" rel="noopener noreferrer">সাপোর্টে কথা বলুন</a>
+    </div>
+    <div class="shop-benefits" aria-label="সার্ভিস সুবিধা">
+      <div class="shop-benefit"><span>⚡</span><div><strong>দ্রুত ডেলিভারি</strong><small>সেটআপ ও যাচাই সাপেক্ষে</small></div></div>
+      <div class="shop-benefit"><span>✓</span><div><strong>১০০% অনুমোদিত কাজ</strong><small>মালিকের অনুমতি সাপেক্ষে</small></div></div>
+      <div class="shop-benefit"><span>🔒</span><div><strong>নিরাপদ পেমেন্ট</strong><small>সহজ অর্ডার প্রক্রিয়া</small></div></div>
+      <div class="shop-benefit"><span>☏</span><div><strong>কাস্টমার সাপোর্ট</strong><small>প্রয়োজনে সহায়তা</small></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN-MANAGED PRODUCT CATALOG -->
+<section id="services">
+  <div class="section-title">Cyber Security Services</div>
+  <div class="section-sub">অনুমোদিত ও বৈধ সিকিউরিটি সার্ভিসসমূহ</div>
+  <div class="grid" id="productsGrid"><p>সার্ভিস লোড হচ্ছে...</p></div>
+</section>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/8801879939668" class="float-wa" target="_blank" title="WhatsApp">💬</a>
 
 <!-- SERVICE PROCESS & SIX-MONTH SUPPORT -->
 <section class="service-info" aria-labelledby="serviceInfoTitle">
@@ -364,47 +492,6 @@
     <div class="service-info-note"><strong>আমাদের লক্ষ্য:</strong> শুধু একটি টুল সরবরাহ করা নয়—অ্যাকাউন্টের মালিকের অনুমতি ও নিরাপত্তাকে গুরুত্ব দিয়ে ৬ মাস ধরে প্রয়োজনীয় সাপোর্ট ও সহযোগিতা প্রদান করা। কোনো অ্যাকাউন্টের পাসওয়ার্ড, OTP বা ব্যক্তিগত তথ্য অপ্রয়োজনীয়ভাবে শেয়ার করবেন না।</div>
   </div>
 </section>
-
-<div class="hero shop-hero">
-  <div class="shop-hero-inner">
-    <div class="shop-eyebrow"><span></span> CYBER TEAM HELP · TRUSTED DIGITAL SERVICES</div>
-    <h1>আপনার অনলাইন নিরাপত্তায় <span>বিশ্বস্ত সঙ্গী</span></h1>
-    <p>ওয়েবসাইট সিকিউরিটি, প্রোটেকশন ও ব্যাকআপ সাপোর্ট—আপনার প্রয়োজন অনুযায়ী বেছে নিন উপযুক্ত সার্ভিস। সহজ অর্ডার, পরিষ্কার তথ্য এবং প্রয়োজনীয় কাস্টমার সাপোর্ট।</p>
-    <div class="shop-hero-actions">
-      <a href="#services" class="shop-primary-cta">সার্ভিসগুলো দেখুন <span>→</span></a>
-      <a href="https://wa.me/8801879939668" class="shop-secondary-cta" target="_blank" rel="noopener noreferrer">সাপোর্টে কথা বলুন</a>
-    </div>
-    <div class="shop-benefits" aria-label="সার্ভিস সুবিধা">
-      <div class="shop-benefit"><span>⚡</span><div><strong>দ্রুত ডেলিভারি</strong><small>সেটআপ ও যাচাই সাপেক্ষে</small></div></div>
-      <div class="shop-benefit"><span>✓</span><div><strong>১০০% অনুমোদিত কাজ</strong><small>মালিকের অনুমতি সাপেক্ষে</small></div></div>
-      <div class="shop-benefit"><span>🔒</span><div><strong>নিরাপদ পেমেন্ট</strong><small>সহজ অর্ডার প্রক্রিয়া</small></div></div>
-      <div class="shop-benefit"><span>☏</span><div><strong>কাস্টমার সাপোর্ট</strong><small>প্রয়োজনে সহায়তা</small></div></div>
-    </div>
-  </div>
-</div>
-    <div class="badge"><strong>⚡</strong> Instant Access</div>
-    <div class="badge"><strong>🔒</strong> Secure Payment</div>
-    <div class="badge"><strong>🛡</strong> Cyber Team Help</div>
-  </div>
-</div>
-
-<!-- ADMIN-MANAGED PRODUCT CATALOG -->
-<section id="services">
-  <div class="section-title">Cyber Security Services</div>
-  <div class="section-sub">অনুমোদিত ও বৈধ সিকিউরিটি সার্ভিসসমূহ</div>
-  <div class="grid" id="productsGrid"><p>সার্ভিস লোড হচ্ছে...</p></div>
-</section>
-
-<!-- Modal -->
-<div class="modal-overlay" id="modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div id="modalContent"></div>
-  </div>
-</div>
-
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/8801879939668" class="float-wa" target="_blank" title="WhatsApp">💬</a>
 
 <footer>
   <strong>Cyber Team Help</strong> — Premium Access Tools<br>
