@@ -702,7 +702,56 @@ footer{background:#060d17!important;border-top:1px solid #263b55!important;color
 .buy-btn:hover,.cth-login:hover{transform:translateY(-2px);filter:brightness(1.1)}
 @media(max-width:900px){.cth-shop-highlights{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.cth-shop-highlights{padding:0 13px;gap:9px}.cth-shop-highlight{padding:12px;gap:9px}.cth-shop-highlight>span{width:35px;height:35px;flex-basis:35px}.cth-shop-highlight strong{font-size:.75rem}.cth-shop-highlight small{font-size:.66rem}.cth-hero{border-radius:17px!important}}
-</style></head>
+</style>
+<style id="cth-bkash-checkout-final">
+/* Dedicated premium bKash checkout theme */
+.modal-overlay .modal{
+ background:linear-gradient(160deg,#fff 0%,#fff8fb 58%,#fff0f6 100%)!important;
+ color:#49263a!important;border:1px solid #f2bfd5!important;
+ box-shadow:0 28px 90px rgba(75,10,43,.28)!important;border-radius:22px!important
+}
+.modal-overlay .modal h2{color:#8f1049!important}
+.modal-overlay .checkout-head{border-bottom:1px solid #f2d8e4!important;padding-bottom:17px!important}
+.modal-overlay .checkout-eyebrow{color:#d41468!important;letter-spacing:1.45px}
+.modal-overlay .checkout-head p,.modal-overlay .checkout-step small{color:#886779!important}
+.modal-overlay .checkout-product{background:linear-gradient(120deg,#fff0f6,#fff)!important;border:1px solid #f0c4d8!important}
+.modal-overlay .checkout-caption,.modal-overlay .checkout-total span{color:#93677d!important}
+.modal-overlay .checkout-product strong{color:#56243d!important}
+.modal-overlay .checkout-total strong{color:#d41468!important}
+.modal-overlay .checkout-step>span{background:#fce1ed!important;color:#c8105d!important}
+.modal-overlay .checkout-step strong{color:#6f1741!important}
+.modal-overlay .checkout-form label{color:#69334f!important;font-weight:750!important}
+.modal-overlay .checkout-form input:not([type=checkbox]),.modal-overlay .checkout-form select{
+ background:#fff!important;color:#49263a!important;border:1px solid #e8c8d7!important;
+ border-radius:12px!important;min-height:50px!important;box-shadow:0 2px 8px rgba(130,36,78,.045)!important;color-scheme:light!important
+}
+.modal-overlay .checkout-form input::placeholder{color:#b493a4!important}
+.modal-overlay .checkout-form input:focus,.modal-overlay .checkout-form select:focus{
+ border-color:#e2136e!important;box-shadow:0 0 0 4px rgba(226,19,110,.11)!important
+}
+.modal-overlay .checkout-form select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23e2136e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")!important}
+.modal-overlay .checkout-form .payment-box{background:linear-gradient(135deg,#fff0f6,#fff)!important;border:1px solid #efbfd4!important;color:#70475c!important;border-radius:14px!important;padding:15px!important}
+.modal-overlay .bkash-payment-card{gap:12px!important}
+.modal-overlay .bkash-logo{background:#e2136e!important;box-shadow:0 5px 14px #e2136e30!important}
+.modal-overlay .bkash-payment-card strong{color:#8f1049!important}
+.modal-overlay .bkash-payment-card .number{color:#d41468!important;font-size:clamp(17px,4vw,21px)!important;letter-spacing:.4px}
+.modal-overlay .bkash-copy{background:#e2136e!important;border-radius:9px!important}
+.modal-overlay .checkout-privacy{background:#fff7fb!important;border:1px solid #f0dce5!important}
+.modal-overlay .checkout-consent{color:#704b5d!important}
+.modal-overlay .checkout-consent input{accent-color:#e2136e!important}
+.modal-overlay .checkout-assurance{color:#8b7180!important}
+.modal-overlay .checkout-submit{background:linear-gradient(100deg,#c90d60,#ed3984)!important;color:#fff!important;border:0!important;min-height:53px!important;border-radius:13px!important;box-shadow:0 10px 24px rgba(226,19,110,.22)!important}
+.modal-overlay #checkoutMessage{color:#a40e51!important}
+@media(max-width:520px){
+ .modal-overlay .modal{padding:20px 16px!important;border-radius:18px!important}
+ .modal-overlay .checkout-grid{grid-template-columns:1fr!important}
+ .modal-overlay .checkout-product{align-items:flex-start!important}
+ .modal-overlay .bkash-payment-card{grid-template-columns:36px minmax(0,1fr)!important}
+ .modal-overlay .bkash-copy{grid-column:2;justify-self:start}
+}
+</style>
+
+</head>
 <body>
 
 <header class="cth-header">
@@ -912,7 +961,7 @@ let activeProduct = null;
 let paymentCache = [];
 function openCheckout(p) {
   activeProduct = p;
-  $('modalContent').innerHTML = '<div class="checkout-head"><div class="checkout-eyebrow">CYBER TEAM HELP · SECURE CHECKOUT</div><h2>আপনার অর্ডার সম্পন্ন করুন</h2><p>নিচের তথ্যগুলো পূরণ করে অর্ডার নিশ্চিত করুন।</p></div><div class="checkout-product"><div><span class="checkout-caption">SELECTED SERVICE</span><strong>'+esc(p.name)+'</strong></div><div class="checkout-total"><span>সার্ভিস মূল্য</span><strong>'+esc(money(p.price))+'</strong></div></div><form id="checkoutForm" class="checkout-form"><div class="checkout-step"><span>01</span><div><strong>আপনার তথ্য</strong><small>যোগাযোগের সঠিক তথ্য দিন</small></div></div><div class="checkout-grid"><label>আপনার নাম<input name="customer_name" required minlength="2" maxlength="100" autocomplete="name" placeholder="সম্পূর্ণ নাম লিখুন"></label><label>ইমেইল অ্যাড্রেস<input name="customer_email" type="email" required maxlength="254" autocomplete="email" placeholder="name@example.com"></label></div><label>ফোন নম্বর<input name="customer_phone" type="tel" required minlength="7" maxlength="25" autocomplete="tel" placeholder="01XXXXXXXXX"></label><div class="checkout-step"><span>02</span><div><strong>পেমেন্ট তথ্য</strong><small>পেমেন্ট সম্পন্ন করে তথ্য দিন</small></div></div><label>পেমেন্ট মাধ্যম<select name="payment_method" id="paymentMethod" required><option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>'+paymentCache.map(m=>'<option value="'+esc(m.name+' — '+m.account_number)+'">'+esc(m.name+' — '+m.account_number)+'</option>').join('')+'</select></label><div id="paymentInstructions" class="payment-box">পেমেন্ট মাধ্যম নির্বাচন করলে নির্দেশনা এখানে দেখা যাবে।</div><label>Transaction ID<input name="transaction_reference" required minlength="3" maxlength="100" placeholder="পেমেন্টের Transaction ID লিখুন"></label><div class="checkout-privacy"><label class="checkout-consent"><input name="privacy_ack" type="checkbox" required><span>আমি নিশ্চিত করছি যে দেওয়া তথ্য সঠিক এবং অর্ডার যাচাইয়ের জন্য এগুলো ব্যবহারে সম্মতি দিচ্ছি।</span></label></div><p class="checkout-assurance">🔒 আপনার তথ্য অর্ডার যাচাই ও সাপোর্টের জন্য ব্যবহার করা হবে। Admin পেমেন্ট যাচাই করে অর্ডার কনফার্ম করবেন।</p><button class="download-btn checkout-submit" type="submit">অর্ডার জমা দিন <span aria-hidden="true">→</span></button><p id="checkoutMessage" role="status"></p></form>';
+  $('modalContent').innerHTML = '<div class="checkout-head"><div class="checkout-eyebrow">CYBER TEAM HELP · bKASH SECURE CHECKOUT</div><h2>আপনার অর্ডার কনফার্ম করুন</h2><p>আপনার সঠিক তথ্য দিন, bKash Send Money সম্পন্ন করে Transaction ID জমা দিন।</p></div><div class="checkout-product"><div><span class="checkout-caption">SELECTED SERVICE</span><strong>'+esc(p.name)+'</strong></div><div class="checkout-total"><span>সার্ভিস মূল্য</span><strong>'+esc(money(p.price))+'</strong></div></div><form id="checkoutForm" class="checkout-form"><div class="checkout-step"><span>01</span><div><strong>আপনার তথ্য</strong><small>নাম, ফোন নম্বর ও ইমেইল ঠিকানা</small></div></div><div class="checkout-grid"><label>আপনার নাম<input name="customer_name" required minlength="2" maxlength="100" autocomplete="name" placeholder="সম্পূর্ণ নাম লিখুন"></label><label>ইমেইল অ্যাড্রেস<input name="customer_email" type="email" required maxlength="254" autocomplete="email" placeholder="আপনার ইমেইল লিখুন"></label></div><label>ফোন নম্বর<input name="customer_phone" type="tel" required minlength="7" maxlength="25" autocomplete="tel" placeholder="01XXXXXXXXX"></label><div class="checkout-step"><span>02</span><div><strong>bKash পেমেন্ট তথ্য</strong><small>নির্বাচিত নম্বরে Send Money করুন</small></div></div><label>পেমেন্ট নম্বর নির্বাচন করুন<select name="payment_method" id="paymentMethod" required><option value="">পেমেন্ট মাধ্যম নির্বাচন করুন</option>'+paymentCache.map(m=>'<option value="'+esc(m.name+' — '+m.account_number)+'">'+esc(m.name+' — '+m.account_number)+'</option>').join('')+'</select></label><div id="paymentInstructions" class="payment-box">bKash নম্বর নির্বাচন করুন। নম্বরটি দেখে Send Money সম্পন্ন করুন।</div><label>Transaction ID<input name="transaction_reference" required minlength="3" maxlength="100" placeholder="bKash SMS থেকে Transaction ID লিখুন"></label><div class="checkout-privacy"><label class="checkout-consent"><input name="privacy_ack" type="checkbox" required><span>আমি নিশ্চিত করছি যে দেওয়া তথ্য সঠিক এবং অর্ডার যাচাইয়ের জন্য এগুলো ব্যবহারে সম্মতি দিচ্ছি।</span></label></div><p class="checkout-assurance">🔒 আপনার তথ্য অর্ডার যাচাই ও সাপোর্টের জন্য ব্যবহার করা হবে। Admin পেমেন্ট যাচাই করে অর্ডার কনফার্ম করবেন।</p><button class="download-btn checkout-submit" type="submit">অর্ডার কনফার্ম করুন <span aria-hidden="true">→</span></button><p id="checkoutMessage" role="status"></p></form>';
   $('modal').classList.add('active');
   document.getElementById('paymentMethod').addEventListener('change', e => {
     const chosen = paymentCache.find(m => (m.name+' — '+m.account_number) === e.target.value);
