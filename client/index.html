@@ -53,6 +53,17 @@ footer{border-top:1px solid #1258bc;color:#adc8ef}
 @media(max-width:850px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:560px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.product{min-height:178px}.hero:after{padding:18px 12px}.catalog>.panel{padding:13px}}
 
+
+/* Storefront order conversion */
+.device-offer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px 0 18px;padding:18px 20px;border:1px solid #00cfff;border-radius:15px;background:linear-gradient(110deg,#071c48,#090e2b 60%,#220d4c);box-shadow:0 0 20px #006dff55,inset 0 0 24px #00d9ff12}
+.device-offer h3{font-size:20px;margin:8px 0 3px;color:#f6fbff}.device-offer p{font-size:13px;color:#b8d5f5;margin:0}
+.offer-ribbon{display:inline-block;padding:4px 10px;border-radius:20px;background:linear-gradient(90deg,#ffb21b,#ff4c8b);color:#fff;font-size:10px;font-weight:900;letter-spacing:.8px}
+.offer-price{font-size:clamp(24px,4vw,36px);font-weight:950;color:#ffe64d;text-shadow:0 0 14px #ffbd38}
+.product-bottom{flex-direction:column;align-items:stretch}
+.product-price{font-size:20px}
+.product button{font-weight:850;letter-spacing:.2px}
+@media(max-width:520px){.device-offer{align-items:flex-start;flex-direction:column}.offer-price{font-size:28px}}
+
 </style>
 </head>
 <body>
@@ -67,7 +78,7 @@ footer{border-top:1px solid #1258bc;color:#adc8ef}
 </section>
 <section id="dashboard" class="hidden">
 <div class="panel"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div><div class="eyebrow">SIGNED IN AS</div><strong id="userEmail"></strong></div><button class="btn secondary" id="signOut">লগআউট</button></div>
-<section id="serviceCatalog" class="catalog"><div class="panel"><div class="eyebrow">AVAILABLE SERVICES</div><h2>সোশ্যাল মিডিয়া ও সিকিউরিটি সার্ভিস</h2><p class="muted">আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করে Next চাপুন।</p><div id="clientProducts" class="products"><div class="empty">সার্ভিস লোড হচ্ছে...</div></div></div></section>
+<section id="serviceCatalog" class="catalog"><div class="panel"><div class="eyebrow">AVAILABLE SERVICES</div><h2>সোশ্যাল মিডিয়া ও সিকিউরিটি সার্ভিস</h2><p class="muted">সার্ভিসের মূল্য দেখে সরাসরি Order Now চাপুন।</p><div class="device-offer"><div><span class="offer-ribbon">LIMITED TIME OFFER</span><h3>Device Control Panel</h3><p>Device Control &amp; Monitoring · অনুমোদিত ডিভাইস ম্যানেজমেন্ট সাপোর্ট</p></div><div class="offer-price">৳২,০০০</div></div><div id="clientProducts" class="products"><div class="empty">সার্ভিস লোড হচ্ছে...</div></div></div></section>
 <div id="orderModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="orderTitle"><div class="modal-box"><button class="modal-close" id="closeOrder" type="button">বন্ধ করুন ✕</button><div class="eyebrow">SECURE ORDER</div><h2 id="orderTitle">অর্ডার ফর্ম</h2><p id="chosenProduct" class="muted"></p><form id="clientCheckout" class="formgrid">
 <label class="field">আপনার নাম<input name="customer_name" required minlength="2" maxlength="100"></label>
 <label class="field">ইমেইল<input name="customer_email" type="email" required maxlength="254"></label>
