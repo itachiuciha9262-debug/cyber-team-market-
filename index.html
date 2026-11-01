@@ -539,6 +539,38 @@
   }
 
 </style>
+
+<style>
+/* Premium blue-violet service refresh */
+:root{--bg:#030916;--card:#0b1730;--card-hover:#102447;--accent:#00d9ff;--accent-dim:#168cff;--text:#edf5ff;--muted:#9db0cf;--border:#173c70;--danger:#ff5577}
+body{background:radial-gradient(ellipse at 50% -10%,#102b59 0%,#030916 52%);color:var(--text)}
+header{background:rgba(3,9,22,.94);border-bottom:1px solid #174a8d}
+.cth-brand-shield{background:linear-gradient(145deg,#00d9ff,#315bff 58%,#8b35ff);box-shadow:0 0 22px #087dff66}
+.cth-login,.cth-explore,.buy-btn{background:linear-gradient(100deg,#087bff,#633cff 65%,#00cfff);color:#fff;border:1px solid #4c9dff;box-shadow:0 8px 26px #075bff44}
+.cth-hero{background:radial-gradient(ellipse at 70% 45%,#102c66 0%,#07152e 42%,#030916 78%)}
+.cth-trust{border-color:#287dff;background:#0a1c3a}
+.cth-hero h1 span,.cth-section-heading h2 b{background:linear-gradient(90deg,#00e5ff,#397cff,#a44dff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cth-services{background:transparent}
+.cth-service-item,.service-info-card,.cth-extra-grid article{background:linear-gradient(145deg,#0c1c39,#071226);border:1px solid #1b4b8b;box-shadow:0 12px 30px #0005}
+.service-accordion-trigger:hover,.cth-service-item:focus-within{border-color:#00d9ff}
+.buy-btn{border-radius:999px}
+.cth-category-chips{max-width:1180px;margin:0 auto 28px;padding:0 22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cth-category-chips a{color:#dcecff;text-decoration:none;padding:9px 15px;border:1px solid #24599b;border-radius:999px;background:linear-gradient(120deg,#0c2144,#111638);font-size:.88rem;transition:.2s}
+.cth-category-chips a:hover{border-color:#00dcff;box-shadow:0 0 18px #008dff55}
+.cth-extra-services{max-width:1180px;margin:64px auto 24px;padding:0 22px}
+.cth-extra-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cth-extra-grid article{padding:22px;border-radius:18px}
+.cth-extra-grid article b{font-size:1.05rem;color:#e8f6ff}
+.cth-extra-grid article p{color:var(--muted);margin-top:9px;font-size:.92rem}
+.cth-certificate{max-width:1136px;margin:55px auto 28px;padding:26px 30px;border:1px solid #24599b;border-radius:22px;background:linear-gradient(110deg,#0b1d3b,#10133a);display:flex;align-items:center;justify-content:space-between;gap:20px}
+.cth-certificate span{color:#00d9ff;font-size:.75rem;letter-spacing:2px;font-weight:800}
+.cth-certificate h2{margin:5px 0 8px}.cth-certificate p{color:var(--muted);max-width:720px}
+.cth-certificate a{white-space:nowrap;text-decoration:none;color:#fff;background:linear-gradient(100deg,#087bff,#713cff);padding:11px 18px;border-radius:999px}
+footer{border-top:1px solid #174a8d;color:#9db0cf}
+@media(max-width:760px){.cth-extra-grid{grid-template-columns:1fr 1fr}.cth-certificate{margin:35px 16px;display:block}.cth-certificate a{display:inline-block;margin-top:15px}.cth-category-chips{justify-content:flex-start;padding:0 16px}}
+@media(max-width:480px){.cth-extra-grid{grid-template-columns:1fr}.cth-category-chips a{font-size:.8rem;padding:8px 11px}.cth-hero{padding-top:42px}}
+</style>
+
 </head>
 <body>
 
@@ -549,15 +581,15 @@
   <nav class="cth-nav" aria-label="Main navigation">
     <a class="active" href="#">⌂ <span>Home</span></a><a href="#services">▣ <span>Services</span>⌄</a><a href="#serviceInfoTitle">ⓘ <span>About</span></a><a href="https://wa.me/8801879939668" target="_blank" rel="noopener noreferrer">☏ <span>Support</span></a><a href="#reviews">☆ <span>Reviews</span></a>
   </nav>
-  <a class="cth-login" href="#services">♙ Login</a>
+  <a class="cth-login" href="/client/" aria-label="Client login">♙ Client Login</a>
 </header>
 
 <div class="hero cth-hero">
   <div class="cth-hero-copy">
     <div class="cth-trust">⬟ &nbsp;6 Years of Trust <span>★★★★★</span></div>
-    <h1>Professional<br><span>Cyber Security</span> Services</h1>
-    <p class="cth-hero-lead">Your Trusted Partner for Social Media &amp; Digital Security</p>
-    <div class="cth-hero-checks"><span>✓ Secure Access</span><span>✓ Fast Delivery</span><span>✓ Premium Support</span></div>
+    <h1>Professional<br><span>Digital Access &amp; Security</span> Services</h1>
+    <p class="cth-hero-lead">সোশ্যাল মিডিয়া, মেসেজিং প্ল্যাটফর্ম ও ওয়েবসাইটের অনুমোদিত ব্যবস্থাপনা এবং নিরাপত্তা সহায়তা—একটি প্ল্যাটফর্মে।</p>
+    <div class="cth-hero-checks"><span>✓ Owner-authorized access</span><span>✓ Website security</span><span>✓ Premium support</span></div>
     <a href="#services" class="cth-explore">▣ &nbsp; Explore Our Services &nbsp; →</a>
   </div>
   <div class="cth-hero-art" aria-hidden="true">
@@ -570,8 +602,23 @@
 
 <!-- ADMIN-MANAGED PRODUCT CATALOG -->
 <section id="services" class="cth-services">
-  <div class="cth-section-heading"><span>Our Services</span><h2>Social Media <b>Account Access Tools</b></h2><p>সোশ্যাল মিডিয়া অ্যাকাউন্ট অ্যাক্সেস, সিকিউরিটি ও ব্যবস্থাপনার জন্য অনুমোদিত টুলস এবং সহায়তা।</p></div>
+  <div class="cth-section-heading"><span>OUR SERVICE CATEGORIES</span><h2>Social Media &amp; <b>Website Security</b></h2><p>নিজের বা স্পষ্ট অনুমতিপ্রাপ্ত অ্যাকাউন্ট ও ওয়েবসাইটের জন্য নিরাপদ সেটআপ, ব্যবস্থাপনা এবং সাপোর্ট।</p></div>
+  <div class="cth-category-chips" aria-label="Service categories">
+    <a href="#productsGrid">Facebook</a><a href="#productsGrid">Instagram</a><a href="#productsGrid">YouTube</a><a href="#productsGrid">TikTok</a><a href="#productsGrid">WhatsApp</a><a href="#productsGrid">IMO</a><a href="#productsGrid">Telegram</a><a href="#productsGrid">X</a>
+    <a href="#website-security">HTTPS / SSL</a><a href="#website-security">HTML Security</a><a href="#website-security">WordPress</a><a href="#website-security">cPanel</a><a href="#website-security">Website Management</a>
+  </div>
   <div class="grid" id="productsGrid"><p>সার্ভিস লোড হচ্ছে...</p></div>
+  <section class="cth-extra-services" id="website-security">
+    <div class="cth-section-heading"><span>WEBSITE PROTECTION</span><h2>Website <b>Security Services</b></h2><p>আপনার নিজস্ব বা অনুমোদিত ওয়েবসাইটের নিরাপত্তা যাচাই, কনফিগারেশন ও রক্ষণাবেক্ষণ।</p></div>
+    <div class="cth-extra-grid">
+      <article><b>🔒 HTTPS / SSL Security</b><p>SSL certificate setup, HTTPS redirect ও নিরাপদ সংযোগ কনফিগারেশনে সহায়তা।</p></article>
+      <article><b>🛡️ HTML &amp; Website Security</b><p>নিরাপদ কনফিগারেশন, basic security review এবং সাধারণ দুর্বলতা শনাক্তে সহায়তা।</p></article>
+      <article><b>🌐 WordPress Security</b><p>WordPress hardening, update review, backup ও নিরাপদ plugin configuration।</p></article>
+      <article><b>⚙️ cPanel Security</b><p>নিজস্ব hosting account-এর access review, backup ও নিরাপদ configuration।</p></article>
+      <article><b>🧩 Website Management</b><p>অনুমোদিত website maintenance, content update ও technical support।</p></article>
+      <article><b>📊 Website Audit</b><p>নিজস্ব সাইটের performance, configuration ও security checklist review।</p></article>
+    </div>
+  </section>
   <div class="cth-feature-strip"><div>ϟ <span><strong>Fast Delivery</strong><small>Setup &amp; verification</small></span></div><div>⬟ <span><strong>Owner Authorized</strong><small>With permission</small></span></div><div>♙ <span><strong>Secure Payment</strong><small>Safe service</small></span></div><div>☏ <span><strong>Customer Support</strong><small>Here to help</small></span></div></div>
 </section>
 
@@ -621,9 +668,10 @@
 </section>
 <section id="reviews" class="cth-reviews"><h2>Cyber Team Help Promise</h2><p>৬ মাসের অ্যাক্টিভেশন সাপোর্ট · প্রফেশনাল কাস্টমার কেয়ার · নিরাপদ ও অনুমোদিত সার্ভিস</p><a href="https://cth-customer-review.vercel.app/" target="_blank" rel="noopener noreferrer">Customer Reviews দেখুন →</a></section>
 
+<section class="cth-certificate" id="certificates"><div><span>CYBER TEAM HELP</span><h2>Certificates &amp; Verification</h2><p>প্রযোজ্য সার্টিফিকেট ও যাচাইযোগ্য অনুমোদনের তথ্য যাচাই শেষে এখানে প্রকাশ করা হবে। যাচাইবিহীন কোনো সার্টিফিকেট বা সরকারি অনুমোদনের দাবি প্রদর্শন করা হয় না।</p></div><a href="https://wa.me/8801879939668" target="_blank" rel="noopener noreferrer">Verify with Support</a></section>
 <footer>
-  <strong>Cyber Team Help</strong> — Premium Access Tools<br>
-  © 2025 · WhatsApp: +8801879939668 · All tools for legal use only.
+  <strong>Cyber Team Help</strong> — Digital Access &amp; Security Services<br>
+  © 2026 · WhatsApp: +8801879939668 · Services are provided only for accounts and websites you own or are authorized to manage.
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
