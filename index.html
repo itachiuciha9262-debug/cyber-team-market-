@@ -601,6 +601,59 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
 @media(max-width:760px){#services #productsGrid{grid-template-columns:1fr;gap:11px}.cth-extra-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.cth-extra-grid{grid-template-columns:1fr}#services .cth-category-chips{justify-content:flex-start}}
 </style>
+
+<style>
+/* Redesigned premium tool catalogue */
+#services{max-width:1320px!important;padding:58px 22px 38px!important}
+#services .cth-section-heading{max-width:760px;margin:0 auto 28px}
+#services .cth-section-heading>span{letter-spacing:2px;font-size:.7rem}
+#services .cth-section-heading h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:12px 0}
+#services .cth-category-chips{justify-content:center;gap:10px;margin:20px auto 30px}
+#services .cth-category-chips a{border-radius:10px;padding:10px 16px;background:#0b1830;border:1px solid #263f66;box-shadow:none}
+#services #productsGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1260px;margin:0 auto;align-items:stretch}
+#services #productsGrid .premium-tool-card{position:relative;display:flex;flex-direction:column;min-width:0;height:100%;padding:18px;border-radius:19px;border:1px solid #243d64;background:linear-gradient(155deg,#101f38 0%,#0a1426 65%,#0b1020 100%);box-shadow:0 12px 28px #0005;transition:transform .22s,border-color .22s,box-shadow .22s;overflow:hidden}
+#services #productsGrid .premium-tool-card:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,#1a9dff,#7559ff,#19d8ed);opacity:.85}
+#services #productsGrid .premium-tool-card:hover{transform:translateY(-5px);border-color:#328bdb;box-shadow:0 18px 38px #006bcb26}
+.tool-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tool-index{font-size:.65rem;letter-spacing:1.4px;color:#7f9cbe;font-weight:800}
+.tool-category{font-size:.61rem;letter-spacing:1px;color:#91dfff;background:#102e4d;border:1px solid #245982;border-radius:30px;padding:5px 8px;font-weight:800}
+.tool-visual{height:112px;display:grid;place-items:center;margin:10px 0 7px}
+.tool-logo{width:82px;height:82px;display:grid;place-items:center;border-radius:23px;border:1px solid #28619a;background:radial-gradient(circle at 30% 20%,#204c7d,#101b37 70%);box-shadow:0 0 28px #087fff22}
+.tool-logo img{width:43px;height:43px;object-fit:contain;display:block}
+.tool-fallback{width:100%;height:100%;place-items:center;color:#d5edff;font-weight:900;font-size:1.15rem}
+.tool-name{font-size:1.05rem;line-height:1.35;color:#f1f6ff;margin:7px 0 9px;min-height:2.7em}
+.tool-description{color:#9fb1c9;font-size:.79rem;line-height:1.65;margin:0 0 15px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;min-height:5.2em}
+.tool-card-bottom{margin-top:auto;padding-top:13px;border-top:1px solid #263b5b;display:grid;gap:7px}
+.tool-price-label{font-size:.62rem;letter-spacing:1.5px;color:#829ab8;font-weight:800}
+.tool-price{font-size:1.28rem;color:#7ce5ff;letter-spacing:.2px}
+#services #productsGrid .premium-tool-card .buy-btn{width:100%;margin:5px 0 0;border-radius:11px;min-height:42px;background:linear-gradient(100deg,#087bff,#5946e8);border:1px solid #478dff;color:#fff;font-weight:800;box-shadow:0 7px 18px #075bff30}
+.tool-authorized{margin-top:12px;color:#83cbb8;font-size:.68rem;line-height:1.4}
+.cth-extra-services{margin-top:36px!important;padding:22px!important;border:1px solid #233e63;border-radius:20px;background:linear-gradient(145deg,#0c1a30,#080f1d)}
+.cth-extra-services .cth-section-heading{margin-bottom:16px}
+.cth-extra-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cth-extra-grid article{background:#0d1c31;border:1px solid #294669;border-radius:14px}
+.email-auth-overlay{position:fixed;inset:0;z-index:9999;display:none;place-items:center;padding:18px;background:#020713d9;backdrop-filter:blur(12px)}
+.email-auth-overlay.open{display:grid}
+.email-auth-card{position:relative;width:min(100%,430px);padding:30px;border:1px solid #2c5d91;border-radius:22px;background:linear-gradient(150deg,#122746,#091326 75%);box-shadow:0 25px 80px #000b,0 0 35px #087fff22}
+.email-auth-close{position:absolute;right:15px;top:12px;border:0;background:transparent;color:#a9c4e4;font-size:1.8rem;cursor:pointer}
+.email-auth-brand{width:52px;height:52px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#087bff,#6545e9);font-weight:950;color:#fff;font-size:1.15rem;box-shadow:0 8px 24px #087bff55}
+.email-auth-kicker{margin-top:20px;color:#65d7ff;font-size:.65rem;letter-spacing:2px;font-weight:900}
+.email-auth-card h2{margin:8px 0;color:#f5f8ff;font-size:1.55rem}
+.email-auth-card p{color:#9eb2cc;font-size:.86rem;line-height:1.6}
+.email-auth-card form{display:grid;gap:10px;margin-top:20px}
+.email-auth-card label{color:#cbd9eb;font-size:.8rem;font-weight:750}
+.email-auth-card input{width:100%;padding:14px 13px;border:1px solid #35577d;border-radius:11px;background:#071326;color:#fff;font:inherit;outline:none}
+.email-auth-card input:focus{border-color:#29bfff;box-shadow:0 0 0 3px #168fff24}
+.email-auth-submit{width:100%;min-height:48px;margin-top:7px;border:1px solid #458dff;border-radius:11px;background:linear-gradient(100deg,#087bff,#6545e9);color:#fff;font-weight:850;cursor:pointer}
+.email-auth-submit:disabled{opacity:.6;cursor:wait}
+.email-auth-resend{border:0;background:transparent;color:#79d8ff;padding:8px;cursor:pointer}
+.email-auth-message{min-height:20px;margin:0!important;color:#ffcf70!important;font-size:.8rem!important}
+.email-auth-foot{margin-top:18px;padding-top:14px;border-top:1px solid #28405d;color:#90a6c1;font-size:.73rem}
+.cth-login{cursor:pointer}
+@media(max-width:1050px){#services #productsGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:720px){#services #productsGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#services #productsGrid .premium-tool-card{padding:13px}.tool-visual{height:92px}.tool-logo{width:68px;height:68px;border-radius:19px}.tool-logo img{width:36px;height:36px}.tool-name{font-size:.93rem}.tool-description{font-size:.74rem;-webkit-line-clamp:3;min-height:4.6em}.tool-price{font-size:1.1rem}}
+@media(max-width:430px){#services{padding-left:13px!important;padding-right:13px!important}.email-auth-card{padding:25px 20px}}
+</style>
 </head>
 <body>
 
@@ -611,7 +664,7 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
   <nav class="cth-nav" aria-label="Main navigation">
     <a class="active" href="#">⌂ <span>Home</span></a><a href="#services">▣ <span>Services</span>⌄</a><a href="#serviceInfoTitle">ⓘ <span>About</span></a><a href="https://wa.me/8801879939668" target="_blank" rel="noopener noreferrer">☏ <span>Support</span></a><a href="#reviews">☆ <span>Reviews</span></a>
   </nav>
-  <button class="cth-login" id="googleLoginBtn" type="button" aria-label="Continue with Google">G &nbsp; Login with Google</button>
+  <button class="cth-login" id="emailLoginBtn" type="button" aria-label="Login with email">✉ &nbsp; Email Login</button>
 </header>
 
 <div class="hero cth-hero">
@@ -701,7 +754,29 @@ footer{border-top:1px solid #174a8d;color:#9db0cf}
   © 2026 · WhatsApp: +8801879939668 · Services are provided only for accounts and websites you own or are authorized to manage.
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<div class="email-auth-overlay" id="emailAuthOverlay" aria-hidden="true">
+  <div class="email-auth-card" role="dialog" aria-modal="true" aria-labelledby="emailAuthTitle">
+    <button class="email-auth-close" id="emailAuthClose" type="button" aria-label="Close">×</button>
+    <div class="email-auth-brand">CTH</div>
+    <div class="email-auth-kicker">SECURE CLIENT ACCESS</div>
+    <h2 id="emailAuthTitle">ইমেইল দিয়ে লগইন</h2>
+    <p id="emailAuthIntro">আপনার ইমেইলে ৬ সংখ্যার ভেরিফিকেশন কোড পাঠানো হবে।</p>
+    <form id="emailOtpForm">
+      <label for="loginEmail">ইমেইল ঠিকানা</label>
+      <input id="loginEmail" type="email" autocomplete="email" placeholder="name@example.com" required>
+      <div class="otp-entry" id="otpEntry" hidden>
+        <label for="loginOtp">৬ সংখ্যার কোড</label>
+        <input id="loginOtp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" placeholder="000000">
+      </div>
+      <button class="email-auth-submit" id="emailOtpSubmit" type="submit">কোড পাঠান <span>→</span></button>
+      <button class="email-auth-resend" id="emailOtpResend" type="button" hidden>আবার কোড পাঠান</button>
+      <p class="email-auth-message" id="emailAuthMessage" role="status"></p>
+    </form>
+    <div class="email-auth-foot">🔒 নিরাপদ লগইন · আপনার পাসওয়ার্ডের প্রয়োজন নেই</div>
+  </div>
+</div>
+\n<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="./config.js"></script>
 <script>
 const supabaseClient = window.supabase.createClient(CTH_SUPABASE_URL, CTH_SUPABASE_ANON_KEY);
@@ -718,28 +793,33 @@ function renderProduct(p, index) {
     { match: /whatsapp/, slug: 'whatsapp', color: '25D366', fallback: '☎' },
     { match: /imo/, slug: '', color: '', fallback: 'imo' },
     { match: /telegram/, slug: 'telegram', color: '26A5E4', fallback: '➤' },
-    { match: /twitter|(^|\W)x(\W|$)/, slug: 'x', color: 'FFFFFF', fallback: '𝕏' },
+    { match: /twitter|(^|\\W)x(\\W|$)/, slug: 'x', color: 'FFFFFF', fallback: '𝕏' },
     { match: /wordpress/, slug: 'wordpress', color: '21759B', fallback: 'W' },
-    { match: /google/, slug: 'google', color: '4285F4', fallback: 'G' }
+    { match: /google/, slug: 'google', color: '4285F4', fallback: 'G' },
+    { match: /ssl/, slug: 'letsencrypt', color: 'FFFFFF', fallback: 'SSL' },
+    { match: /malware|threat/, slug: 'virustotal', color: 'FFFFFF', fallback: 'SCAN' },
+    { match: /vulnerability|audit|headers/, slug: 'owasp', color: 'FFFFFF', fallback: 'SEC' },
+    { match: /cloud|dns/, slug: 'cloudflare', color: 'F38020', fallback: 'DNS' },
+    { match: /speed|uptime/, slug: 'speedtest', color: 'FFFFFF', fallback: '↗' },
+    { match: /backup|recovery/, slug: 'icloud', color: 'FFFFFF', fallback: '↻' }
   ];
   const knownBrand = brandMap.find(item => item.match.test(brand));
   const fallback = knownBrand ? knownBrand.fallback : '🛡';
   const logoUrl = knownBrand && knownBrand.slug ? 'https://cdn.simpleicons.org/' + knownBrand.slug + '/' + knownBrand.color : '';
   const media = p.image_url
-    ? '<span class="service-row-logo"><img src="' + esc(p.image_url) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=\\\'service-row-fallback\\\'>' + esc(fallback) + '</span>\'"></span>'
+    ? '<img src="' + esc(p.image_url) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">'
     : logoUrl
-      ? '<span class="service-row-logo"><img src="' + esc(logoUrl) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.parentElement.innerHTML=\'<span class=\\\'service-row-fallback\\\'>' + esc(fallback) + '</span>\'"></span>'
-      : '<span class="service-row-logo service-row-fallback" aria-hidden="true">' + esc(fallback) + '</span>';
-  return '<article class="cth-service-item"><details class="service-accordion">' +
-    '<summary class="service-accordion-trigger">' +
-      '<span class="service-row-number">' + String(index + 1).padStart(2, '0') + '</span>' + media +
-      '<span class="service-row-title">' + esc(p.name) + '</span>' +
-      '<span class="service-row-chevron" aria-hidden="true">⌄</span>' +
-    '</summary><div class="service-accordion-panel">' +
-      '<p class="service-row-description">' + esc(p.description || 'বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।') + '</p>' +
-      '<div class="service-row-footer"><span class="service-row-safe">✓ মালিকের অনুমতিতে বৈধ সেবা</span></div>' +
-    '</div></details><div class="cth-service-action"><strong>' + esc(money(p.price)) + '</strong>' +
-    '<button class="buy-btn" type="button" data-order="' + esc(p.id) + '">🛒 Order Now</button></div></article>';
+      ? '<img src="' + esc(logoUrl) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'grid\'">'
+      : '';
+  const category = /facebook|instagram|youtube|tiktok|whatsapp|imo|telegram|twitter|\\bx\\b/i.test(p.name) ? 'SOCIAL TOOL' : 'SECURITY TOOL';
+  return '<article class="cth-service-item premium-tool-card">' +
+    '<div class="tool-card-top"><span class="tool-index">TOOL ' + String(index + 1).padStart(2, '0') + '</span><span class="tool-category">' + category + '</span></div>' +
+    '<div class="tool-visual"><span class="tool-logo">' + media + '<span class="tool-fallback" style="' + (media ? 'display:none' : 'display:grid') + '">' + esc(fallback) + '</span></span></div>' +
+    '<h3 class="tool-name">' + esc(p.name) + '</h3>' +
+    '<p class="tool-description">' + esc(p.description || 'বিস্তারিত জানতে আমাদের সঙ্গে যোগাযোগ করুন।') + '</p>' +
+    '<div class="tool-card-bottom"><div class="tool-price-label">TOOL PRICE</div><strong class="tool-price">' + esc(money(p.price)) + '</strong>' +
+    '<button class="buy-btn" type="button" data-order="' + esc(p.id) + '">অর্ডার করুন <span>→</span></button></div>' +
+    '<div class="tool-authorized">✓ মালিকের অনুমতিতে বৈধ ব্যবহার</div></article>';
 }
 async function loadProducts() {
   productsGrid.innerHTML = '<p>সার্ভিস লোড হচ্ছে...</p>';
@@ -819,30 +899,75 @@ productsGrid.addEventListener('click', async event => {
   openCheckout(product);
 });
 
-const googleLoginBtn = document.getElementById('googleLoginBtn');
-if (googleLoginBtn) {
-  googleLoginBtn.addEventListener('click', async () => {
-    googleLoginBtn.disabled = true;
-    googleLoginBtn.textContent = 'Google login opening...';
-    try {
-      const { error } = await supabaseClient.auth.signInWithOAuth({
-        provider: 'google',
-        options: { redirectTo: window.location.origin + '/' }
-      });
-      if (error) throw error;
-    } catch (error) {
-      console.error('Google OAuth error:', error);
-      alert('Google Login এখনো চালু হয়নি বা Provider কনফিগার করা নেই। Supabase Auth-এ Google Provider enable করে Client ID ও Client Secret যোগ করতে হবে।');
-      googleLoginBtn.disabled = false;
-      googleLoginBtn.innerHTML = 'G &nbsp; Login with Google';
-    }
-  });
+const emailLoginBtn = document.getElementById('emailLoginBtn');
+const emailAuthOverlay = document.getElementById('emailAuthOverlay');
+const emailAuthForm = document.getElementById('emailOtpForm');
+const loginEmail = document.getElementById('loginEmail');
+const loginOtp = document.getElementById('loginOtp');
+const otpEntry = document.getElementById('otpEntry');
+const emailAuthMessage = document.getElementById('emailAuthMessage');
+const emailOtpSubmit = document.getElementById('emailOtpSubmit');
+const emailOtpResend = document.getElementById('emailOtpResend');
+let otpSent = false;
+function openEmailAuth(){
+  emailAuthOverlay.classList.add('open');
+  emailAuthOverlay.setAttribute('aria-hidden','false');
+  emailAuthMessage.textContent='';
+  setTimeout(()=>loginEmail.focus(),80);
 }
-supabaseClient.auth.onAuthStateChange((_event, session) => {
-  if (googleLoginBtn && session && session.user) {
-    const label = session.user.email || 'Client Account';
-    googleLoginBtn.textContent = '✓ ' + label;
-    googleLoginBtn.disabled = false;
+function closeEmailAuth(){
+  emailAuthOverlay.classList.remove('open');
+  emailAuthOverlay.setAttribute('aria-hidden','true');
+}
+emailLoginBtn?.addEventListener('click',openEmailAuth);
+document.getElementById('emailAuthClose')?.addEventListener('click',closeEmailAuth);
+emailAuthOverlay?.addEventListener('click',event=>{if(event.target===emailAuthOverlay)closeEmailAuth();});
+emailAuthForm?.addEventListener('submit',async event=>{
+  event.preventDefault();
+  const email=loginEmail.value.trim();
+  const code=loginOtp.value.trim();
+  emailOtpSubmit.disabled=true;
+  emailAuthMessage.textContent=otpSent?'কোড যাচাই করা হচ্ছে...':'ইমেইলে কোড পাঠানো হচ্ছে...';
+  try{
+    if(!otpSent){
+      const {error}=await supabaseClient.auth.signInWithOtp({email,options:{shouldCreateUser:true}});
+      if(error) throw error;
+      otpSent=true;
+      otpEntry.hidden=false;
+      loginEmail.readOnly=true;
+      loginOtp.required=true;
+      emailOtpSubmit.innerHTML='কোড যাচাই করে লগইন <span>→</span>';
+      emailOtpResend.hidden=false;
+      emailAuthMessage.textContent='আপনার ইমেইলে ৬ সংখ্যার কোড পাঠানো হয়েছে। Inbox ও Spam ফোল্ডার দেখুন।';
+      loginOtp.focus();
+    }else{
+      const {data,error}=await supabaseClient.auth.verifyOtp({email,token:code,type:'email'});
+      if(error) throw error;
+      if(!data.session) throw new Error('Verification completed but no session was returned.');
+      emailAuthMessage.textContent='লগইন সফল হয়েছে।';
+      closeEmailAuth();
+      emailLoginBtn.textContent='✓ '+email;
+      emailLoginBtn.title='Signed in';
+    }
+  }catch(error){
+    console.error('Email OTP auth error:',error);
+    emailAuthMessage.textContent=error.message||'কোড পাঠানো বা যাচাই করা যায়নি। আবার চেষ্টা করুন।';
+  }finally{emailOtpSubmit.disabled=false;}
+});
+emailOtpResend?.addEventListener('click',async()=>{
+  const email=loginEmail.value.trim();
+  emailOtpResend.disabled=true;
+  try{
+    const {error}=await supabaseClient.auth.signInWithOtp({email,options:{shouldCreateUser:true}});
+    if(error) throw error;
+    emailAuthMessage.textContent='নতুন কোড পাঠানো হয়েছে। Inbox ও Spam দেখুন।';
+  }catch(error){emailAuthMessage.textContent=error.message||'আবার কোড পাঠানো যায়নি।';}
+  finally{emailOtpResend.disabled=false;}
+});
+supabaseClient.auth.onAuthStateChange((_event,session)=>{
+  if(emailLoginBtn&&session?.user){
+    emailLoginBtn.textContent='✓ '+(session.user.email||'Client Account');
+    emailLoginBtn.title='Signed in';
   }
 });
 
