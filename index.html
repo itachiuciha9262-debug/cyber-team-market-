@@ -163,22 +163,31 @@
     .hero { padding: 50px 18px 40px; }
   }
 
-  /* Limited-time offer banner */
-  .offer-section { max-width: 1200px; margin: 24px auto 0; padding: 0 24px; }
+  /* Compact top offer banner */
+  .offer-section { max-width: 1200px; margin: 14px auto 0; padding: 0 24px; }
   .offer-card {
-    position: relative; overflow: hidden; padding: 30px;
-    border: 1px solid rgba(0,224,164,.45); border-radius: 18px;
-    background: radial-gradient(circle at 90% 10%, rgba(0,224,164,.18), transparent 38%), linear-gradient(135deg,#142b2b,#101827 65%);
-    box-shadow: 0 14px 40px rgba(0,0,0,.22);
+    display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:18px;
+    position:relative; overflow:hidden; padding:18px 22px;
+    border:1px solid rgba(0,224,164,.42); border-radius:14px;
+    background:radial-gradient(circle at 90% 10%,rgba(0,224,164,.14),transparent 36%),linear-gradient(110deg,#142b2b,#101827 72%);
+    box-shadow:0 8px 24px rgba(0,0,0,.18);
   }
-  .offer-kicker { color: var(--accent); font-size: .82rem; font-weight: 800; letter-spacing: 1.5px; }
-  .offer-card h2 { font-size: clamp(1.45rem,4vw,2.2rem); line-height: 1.25; margin: 8px 0 12px; }
-  .offer-card h2 span { color: var(--accent); }
-  .offer-card p { color: #c2cad6; max-width: 780px; margin: 8px 0; }
-  .offer-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
-  .offer-link { display:inline-flex; align-items:center; justify-content:center; padding:11px 16px; border-radius:9px; text-decoration:none; font-weight:750; font-size:.9rem; border:1px solid var(--accent); color:var(--accent); }
+  .offer-kicker { color:var(--accent); font-size:.72rem; font-weight:800; letter-spacing:1.2px; }
+  .offer-card h2 { font-size:clamp(1.15rem,2.5vw,1.65rem); line-height:1.25; margin:4px 0 6px; }
+  .offer-card h2 span { color:var(--accent); }
+  .offer-card p { color:#c2cad6; font-size:.86rem; margin:0; }
+  .offer-actions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:8px; max-width:430px; }
+  .offer-link { display:inline-flex; align-items:center; justify-content:center; padding:8px 11px; border-radius:8px; text-decoration:none; font-weight:750; font-size:.78rem; white-space:nowrap; border:1px solid var(--accent); color:var(--accent); }
   .offer-link.primary { background:var(--accent); color:#05100c; }
-  .offer-note { color:var(--muted)!important; font-size:.82rem; margin-top:14px!important; }
+  .offer-note { display:none; }
+  @media (max-width:700px) {
+    .offer-section { margin-top:10px; padding:0 14px; }
+    .offer-card { grid-template-columns:1fr; gap:10px; padding:14px 15px; border-radius:12px; }
+    .offer-card h2 { font-size:1.12rem; margin:3px 0 5px; }
+    .offer-card p { font-size:.78rem; line-height:1.45; }
+    .offer-actions { justify-content:flex-start; gap:7px; max-width:none; }
+    .offer-link { padding:7px 9px; font-size:.72rem; }
+  }
 
   .checkout-form{display:grid;gap:12px}.checkout-form label{display:grid;gap:5px;color:var(--muted);font-size:.9rem}.checkout-form input,.checkout-form select{width:100%;padding:12px;border-radius:8px;border:1px solid var(--border);background:#0a0e17;color:var(--text)}
 </style>
@@ -193,20 +202,20 @@
   <a href="#services" class="header-cta">সার্ভিস দেখুন</a>
 </header>
 
-<!-- LIMITED-TIME 30% OFFER -->
+<!-- COMPACT TOP OFFER BANNER -->
 <section class="offer-section" aria-labelledby="offerTitle">
   <div class="offer-card">
-    <div class="offer-kicker">🔥 LIMITED-TIME OFFER</div>
-    <h2 id="offerTitle">এখনই অর্ডার করুন — পাচ্ছেন <span>৩০% ডিসকাউন্ট!</span></h2>
-    <p>🎥 আমাদের সার্ভিস সম্পর্কে বিস্তারিত জানতে ভিডিওটি সম্পূর্ণ দেখুন। আপনার প্রয়োজনীয় সার্ভিস সম্পর্কে জানুন, ডেমো সাইট ঘুরে দেখুন এবং প্রয়োজন অনুযায়ী অর্ডার করুন।</p>
-    <p>⏳ ৩০% ডিসকাউন্ট সীমিত সময়ের জন্য। অফার ও সার্ভিসের বিস্তারিত জেনে নিতে আজই যোগাযোগ করুন।</p>
-    <div class="offer-actions">
-      <a class="offer-link primary" href="https://www.facebook.com/share/v/1bnPp8GLUD/" target="_blank" rel="noopener noreferrer">🎬 সার্ভিসের ভিডিও দেখুন</a>
-      <a class="offer-link" href="https://cybersecuritycth.shop/demo-site/" target="_blank" rel="noopener noreferrer">🖥️ ডেমো সাইট</a>
-      <a class="offer-link" href="https://cybersecuritycth.shop/" target="_blank" rel="noopener noreferrer">🌐 অফিসিয়াল ওয়েবসাইট</a>
-      <a class="offer-link" href="https://wa.me/8801879939668?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A7%A9%E0%A7%A6%25%20%E0%A6%A1%E0%A6%BF%E0%A6%B8%E0%A6%95%E0%A6%BE%E0%A6%89%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%85%E0%A6%AB%E0%A6%BE%E0%A6%B0%E0%A7%87%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%AD%E0%A6%BF%E0%A6%B8%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" target="_blank" rel="noopener noreferrer">🛒 এখনই অর্ডার করুন</a>
+    <div class="offer-copy">
+      <div class="offer-kicker">🔥 LIMITED-TIME OFFER</div>
+      <h2 id="offerTitle">এখনই অর্ডার করুন — <span>৩০% ডিসকাউন্ট!</span></h2>
+      <p>🎥 সার্ভিসের ভিডিও দেখুন, ডেমো ঘুরে দেখুন এবং প্রয়োজনীয় সার্ভিস বেছে নিন।</p>
     </div>
-    <p class="offer-note">Cyber Team Help · Professional Service • Customer Support • Trusted Solutions</p>
+    <div class="offer-actions">
+      <a class="offer-link primary" href="https://www.facebook.com/share/v/1bnPp8GLUD/" target="_blank" rel="noopener noreferrer">🎬 ভিডিও দেখুন</a>
+      <a class="offer-link" href="https://cybersecuritycth.shop/demo-site/" target="_blank" rel="noopener noreferrer">🖥️ ডেমো সাইট</a>
+      <a class="offer-link" href="https://cybersecuritycth.shop/" target="_blank" rel="noopener noreferrer">🌐 ওয়েবসাইট</a>
+      <a class="offer-link" href="https://wa.me/8801879939668?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A7%A9%E0%A7%A6%25%20%E0%A6%A1%E0%A6%BF%E0%A6%B8%E0%A6%95%E0%A6%BE%E0%A6%89%E0%A6%A8%E0%A7%8D%E0%A6%9F%20%E0%A6%85%E0%A6%AB%E0%A6%BE%E0%A6%B0%E0%A7%87%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%AD%E0%A6%BF%E0%A6%B8%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4" target="_blank" rel="noopener noreferrer">🛒 অর্ডার করুন</a>
+    </div>
   </div>
 </section>
 
