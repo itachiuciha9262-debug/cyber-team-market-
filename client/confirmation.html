@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order Confirmation — Cyber Team Help</title>
+<style>
+:root{color-scheme:dark;--bg:#030810;--panel:#0b1628;--line:#1b3653;--cyan:#00e4ff;--purple:#6c5ce7;--muted:#9db1c8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:24px;display:grid;place-items:center;background:radial-gradient(ellipse at top,#10254a 0%,var(--bg) 62%);font-family:Inter,"Noto Sans Bengali",Arial,sans-serif;color:#eef7ff}
+.card{width:min(100%,560px);padding:30px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#101f35,#07111f);box-shadow:0 24px 80px #0009}
+.mark{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,var(--purple),var(--cyan));color:#04101b;font-size:28px;font-weight:900;margin-bottom:20px}
+h1{font-size:26px;margin:0 0 8px}.sub{color:var(--muted);line-height:1.7;margin:0 0 24px}.status{padding:13px 16px;border:1px solid #176b57;background:#09271f;color:#8fffd6;border-radius:14px;margin-bottom:20px}
+.item{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #1b2c41}.item span:first-child{color:var(--muted)}.item strong{text-align:right;overflow-wrap:anywhere}
+.token{margin-top:22px;padding:16px;border:1px dashed #32718a;border-radius:14px;background:#071a28}.token small{display:block;color:var(--muted);margin-bottom:8px}.token code{font-size:14px;overflow-wrap:anywhere;color:var(--cyan)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}a,button{border:0;border-radius:12px;padding:13px 18px;font-weight:700;text-decoration:none;cursor:pointer;font-size:14px}.primary{background:linear-gradient(100deg,var(--purple),#168fb4);color:white}.secondary{background:#17283c;color:#dcecff}
+.note{font-size:13px;color:var(--muted);line-height:1.7;margin-top:20px}
+</style></head>
+<body><main class="card">
+<div class="mark">CTH</div>
+<h1>অর্ডার সফলভাবে জমা হয়েছে!</h1>
+<p class="sub">আপনার অর্ডারটি আমরা পেয়েছি। পেমেন্ট যাচাইয়ের পর অর্ডারের পরবর্তী আপডেট জানানো হবে।</p>
+<div class="status">● অর্ডার স্ট্যাটাস: Pending / যাচাই অপেক্ষমাণ</div>
+<div class="item"><span>সার্ভিস</span><strong id="product">—</strong></div>
+<div class="item"><span>মূল্য</span><strong id="price">—</strong></div>
+<div class="token"><small>আপনার Order Tracking ID</small><code id="token">—</code></div>
+<div class="actions"><button class="primary" id="copy">Tracking ID কপি করুন</button><a class="secondary" href="./">সার্ভিস পেজে ফিরে যান</a></div>
+<p class="note">Tracking ID সংরক্ষণ করুন। Cyber Team Help-এর অফিসিয়াল সাপোর্টের বাইরে কাউকে OTP, PIN বা পাসওয়ার্ড দেবেন না।</p>
+</main>
+<script>
+const q=new URLSearchParams(location.search),token=q.get('token'),product=q.get('product'),price=q.get('price');
+if(!token||!product){document.querySelector('h1').textContent='অর্ডারের তথ্য পাওয়া যায়নি';document.querySelector('.sub').textContent='সার্ভিস পেজ থেকে আবার অর্ডার করার চেষ্টা করুন।';document.querySelector('.status').hidden=true;document.querySelector('.token').hidden=true;document.querySelector('.item').hidden=true;document.querySelectorAll('.item')[1].hidden=true;document.getElementById('copy').hidden=true;}
+else{document.getElementById('token').textContent=token;document.getElementById('product').textContent=product;document.getElementById('price').textContent=price?('৳'+price):'অর্ডার অনুযায়ী';}
+document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(token);document.getElementById('copy').textContent='কপি হয়েছে ✓';}catch(e){document.getElementById('copy').textContent='কপি করা যায়নি';}});
+</script></body></html>
