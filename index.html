@@ -189,7 +189,32 @@
     .offer-link { padding:7px 9px; font-size:.72rem; }
   }
 
-  .checkout-form{display:grid;gap:12px}.checkout-form label{display:grid;gap:5px;color:var(--muted);font-size:.9rem}.checkout-form input,.checkout-form select{width:100%;padding:12px;border-radius:8px;border:1px solid var(--border);background:#0a0e17;color:var(--text)}
+  /* Premium checkout form */
+  .modal { background:linear-gradient(160deg,#151f30 0%,#0e1522 75%); border:1px solid rgba(0,224,164,.24); box-shadow:0 24px 80px rgba(0,0,0,.55); }
+  .modal h2 { color:#f3f7fb; letter-spacing:-.3px; }
+  .checkout-form { display:grid; gap:15px; margin-top:18px; }
+  .checkout-form label { display:grid; gap:7px; color:#c5cfdd; font-size:.86rem; font-weight:650; }
+  .checkout-form input:not([type="checkbox"]), .checkout-form select {
+    width:100%; min-height:48px; padding:12px 14px; border-radius:11px;
+    border:1px solid #2b3a4d; background:#0a1220; color:#f4f7fb;
+    font-size:.95rem; outline:none; transition:border-color .2s,box-shadow .2s,background .2s;
+    color-scheme:dark;
+  }
+  .checkout-form input::placeholder { color:#738197; }
+  .checkout-form input:focus, .checkout-form select:focus {
+    border-color:var(--accent); background:#0c1925;
+    box-shadow:0 0 0 3px rgba(0,224,164,.13);
+  }
+  .checkout-form select {
+    appearance:none; padding-right:42px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%2300e0a4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 14px center;
+  }
+  .checkout-form input[type="checkbox"] { accent-color:var(--accent); width:18px!important; height:18px; flex:0 0 18px; }
+  .checkout-form .payment-box { border:1px solid rgba(0,224,164,.25); background:linear-gradient(135deg,rgba(0,224,164,.08),#0a1220); color:#cbd5e1; line-height:1.6; }
+  .checkout-form .download-btn { margin:4px 0 0; border-radius:11px; box-shadow:0 8px 22px rgba(0,224,164,.15); }
+  #checkoutMessage { color:#ffd166; font-size:.86rem; }
+  @media(max-width:500px) { .modal { padding:20px 17px; border-radius:16px; } .checkout-form { gap:13px; } }
 </style>
 </head>
 <body>
