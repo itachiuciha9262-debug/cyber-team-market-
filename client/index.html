@@ -1,13 +1,63 @@
 <!doctype html>
 <html lang="bn">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="refresh" content="0;url=/" />
-<title>Cyber Team Help · Shop</title>
-<script>location.replace("/");</script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Client Dashboard · Cyber Team Help</title>
+<meta name="theme-color" content="#071426">
+<style>
+:root{color-scheme:dark;--bg:#07111f;--panel:#101e32;--panel2:#142640;--line:#263d59;--text:#edf5ff;--muted:#9db0c8;--blue:#69a7ff;--cyan:#55e2e8;--green:#55ddb0;--red:#ff8295}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#12345a 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.6 system-ui,"Noto Sans Bengali",sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 30px));margin:auto}
+header{border-bottom:1px solid var(--line);background:#07111fe8;backdrop-filter:blur(14px);position:sticky;top:0;z-index:5}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:850;font-size:18px;letter-spacing:.2px}.brand span{color:var(--cyan)}.nav a,.btn{border:1px solid var(--line);border-radius:10px;padding:9px 13px;background:#13243a;color:var(--text);font-weight:700}
+.hero{padding:36px 0 22px}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:1.6px;font-weight:800}.hero h1{font-size:clamp(27px,5vw,42px);line-height:1.2;margin:8px 0}.hero p{color:var(--muted);margin:0}
+.panel{background:linear-gradient(145deg,#142740,#0e1b2d);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 18px 50px #0003}
+.auth{max-width:480px;margin:28px auto}.field{display:grid;gap:7px;margin:14px 0;color:#c9d8e9}.field input,.field textarea{width:100%;border:1px solid #35506f;border-radius:10px;background:#091727;color:white;padding:13px;font:inherit;outline:none}.field input:focus,.field textarea:focus{border-color:var(--blue)}
+.btn{cursor:pointer;background:linear-gradient(110deg,#367fda,#3b9bd1);border:0;display:inline-flex;justify-content:center;align-items:center;min-height:43px}.btn.secondary{background:#1b304a;border:1px solid var(--line)}.btn:disabled{opacity:.5;cursor:wait}
+.message{color:var(--cyan);font-size:13px;min-height:22px}.muted{color:var(--muted)}.hidden{display:none!important}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin:22px 0}.stat{background:#0b192a;border:1px solid var(--line);padding:17px;border-radius:14px}.stat small{display:block;color:var(--muted)}.stat strong{font-size:26px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.tab{padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:#0d1c2e;color:var(--muted);cursor:pointer}.tab.active{color:white;border-color:#559ce8;background:#173657}
+.section{margin:16px 0 24px}.section h2{font-size:19px;margin:0 0 14px}.list{display:grid;gap:10px}.item{background:#0b192a;border:1px solid var(--line);border-radius:13px;padding:15px;display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.item h3{font-size:15px;margin:0 0 4px}.item p{margin:3px 0;color:var(--muted);font-size:13px;overflow-wrap:anywhere}.pill{white-space:nowrap;border-radius:99px;padding:4px 9px;background:#193a5d;color:#9fd0ff;font-size:11px;font-weight:800}.pill.done{background:#123d35;color:#7be4c0}.pill.bad{background:#4a2631;color:#ffb2bf}
+.empty{border:1px dashed #38516d;border-radius:12px;padding:20px;text-align:center;color:var(--muted)}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.formgrid .wide{grid-column:1/-1}
+footer{text-align:center;padding:35px 10px;color:#8196b0;font-size:12px}
+@media(max-width:650px){.stats{grid-template-columns:1fr 1fr}.stat:last-child{grid-column:1/-1}.panel{padding:17px}.formgrid{grid-template-columns:1fr}.formgrid .wide{grid-column:auto}.item{display:block}.item .pill{display:inline-block;margin-top:8px}.nav{height:62px}}
+</style>
 </head>
 <body>
-<p>Shop-এ নেওয়া হচ্ছে… <a href="/">এখানে ক্লিক করুন</a></p>
-</body>
-</html>
+<header><div class="wrap nav"><a class="brand" href="/">CYBER <span>TEAM HELP</span></a><a href="/">← Store-এ ফিরে যান</a></div></header>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">CUSTOMER ACCOUNT CENTER</div><h1>আপনার Client Dashboard</h1><p>আপনার অর্ডার, সার্ভিস রিকোয়েস্ট ও গুরুত্বপূর্ণ নোটিশ এক জায়গায় দেখুন।</p></section>
+<section id="authPanel" class="panel auth">
+<h2>ইমেইল দিয়ে নিরাপদ লগইন</h2><p class="muted">আপনার ইমেইলে OTP কোড পাঠানো হবে।</p>
+<form id="authForm"><label class="field">ইমেইল ঠিকানা<input id="email" type="email" required autocomplete="email" placeholder="name@example.com"></label>
+<label class="field hidden" id="otpWrap">৬ সংখ্যার OTP<input id="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="ইমেইলের কোড"></label>
+<button class="btn" id="authSubmit" type="submit">ইমেইলে OTP পাঠান</button> <button class="btn secondary hidden" id="resend" type="button">আবার কোড পাঠান</button><p id="authMessage" class="message" role="status"></p></form>
+</section>
+<section id="dashboard" class="hidden">
+<div class="panel"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div><div class="eyebrow">SIGNED IN AS</div><strong id="userEmail"></strong></div><button class="btn secondary" id="signOut">লগআউট</button></div>
+<div class="stats"><div class="stat"><small>আমার অর্ডার</small><strong id="orderCount">0</strong></div><div class="stat"><small>সার্ভিস রিকোয়েস্ট</small><strong id="requestCount">0</strong></div><div class="stat"><small>নতুন নোটিশ</small><strong id="noticeCount">0</strong></div></div>
+<div class="tabs"><button class="tab active" data-tab="orders">অর্ডার</button><button class="tab" data-tab="requests">সার্ভিস রিকোয়েস্ট</button><button class="tab" data-tab="notices">নোটিশ</button><button class="tab" data-tab="newrequest">নতুন রিকোয়েস্ট</button></div>
+<div id="orders" class="section tabcontent"><h2>আমার অর্ডার</h2><div id="ordersList" class="list"></div></div>
+<div id="requests" class="section tabcontent hidden"><h2>সার্ভিস রিকোয়েস্ট</h2><div id="requestsList" class="list"></div></div>
+<div id="notices" class="section tabcontent hidden"><h2>নোটিশ ও আপডেট</h2><div id="noticesList" class="list"></div></div>
+<div id="newrequest" class="section tabcontent hidden"><div class="panel"><h2>নতুন সার্ভিস রিকোয়েস্ট</h2><form id="requestForm" class="formgrid"><label class="field wide">রিকোয়েস্টের বিষয়<input name="title" required maxlength="140" placeholder="যেমন: অর্ডার সংক্রান্ত সহায়তা"></label><label class="field wide">বিস্তারিত<textarea name="details" rows="4" maxlength="2000" placeholder="আপনার সমস্যাটি সংক্ষেপে লিখুন"></textarea></label><div class="wide"><button class="btn" type="submit">রিকোয়েস্ট জমা দিন</button><p id="requestMessage" class="message"></p></div></form></div></div>
+</div></section>
+</main><footer>© Cyber Team Help · Customer Support <br><a href="https://wa.me/8801879939668">Official WhatsApp Support</a></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="../config.js"></script>
+<script>
+const sb=window.supabase.createClient(CTH_SUPABASE_URL,CTH_SUPABASE_ANON_KEY);
+const $=id=>document.getElementById(id);let otpSent=false;
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function statusLabel(s){return ({pending:'পেমেন্ট যাচাই চলছে',approved:'অনুমোদিত',completed:'সম্পন্ন',rejected:'অনুমোদিত হয়নি',new:'নতুন',in_progress:'কাজ চলছে',cancelled:'বাতিল'})[s]||s||'আপডেট নেই';}
+function pill(s){const cls=['completed','approved'].includes(s)?'done':s==='rejected'?'bad':'';return '<span class="pill '+cls+'">'+esc(statusLabel(s))+'</span>';}
+$('authForm').addEventListener('submit',async e=>{e.preventDefault();const email=$('email').value.trim();$('authSubmit').disabled=true;$('authMessage').textContent=otpSent?'কোড যাচাই হচ্ছে...':'কোড পাঠানো হচ্ছে...';try{if(!otpSent){const {error}=await sb.auth.signInWithOtp({email,options:{shouldCreateUser:true}});if(error)throw error;otpSent=true;$('email').readOnly=true;$('otpWrap').classList.remove('hidden');$('resend').classList.remove('hidden');$('authSubmit').textContent='OTP যাচাই করে লগইন';$('authMessage').textContent='ইমেইল Inbox/Spam-এ পাঠানো কোড লিখুন।';$('otp').focus();}else{const {error}=await sb.auth.verifyOtp({email,token:$('otp').value.trim(),type:'email'});if(error)throw error;await showDashboard();}}catch(err){$('authMessage').textContent=err.message||'লগইন করা যায়নি।';}finally{$('authSubmit').disabled=false;}});
+$('resend').addEventListener('click',async()=>{const {error}=await sb.auth.signInWithOtp({email:$('email').value.trim(),options:{shouldCreateUser:true}});$('authMessage').textContent=error?error.message:'নতুন OTP পাঠানো হয়েছে।';});
+$('signOut').addEventListener('click',async()=>{await sb.auth.signOut();location.reload();});
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.tabcontent').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));}));
+function renderList(id,rows,kind){const el=$(id);if(!rows.length){el.innerHTML='<div class="empty">এখনো কোনো তথ্য নেই।</div>';return;}el.innerHTML=rows.map(x=>{let title=kind==='orders'?x.product_name:kind==='requests'?x.title:x.title;let sub=kind==='orders'?'অর্ডার: '+x.created_at+' · ৳'+(x.product_price??'—'):kind==='requests'?(x.details||''):(x.message||'');return '<article class="item"><div><h3>'+esc(title)+'</h3><p>'+esc(sub)+'</p>'+(kind==='orders'&&x.admin_note?'<p>Admin note: '+esc(x.admin_note)+'</p>':'')+(kind==='orders'&&x.download_url?'<p><a style="color:#79c5ff" href="'+esc(x.download_url)+'" target="_blank" rel="noopener">ডাউনলোড লিংক খুলুন</a></p>':'')+'</div>'+pill(kind==='orders'?x.status:kind==='requests'?x.status:(x.is_read?'পড়া হয়েছে':'নতুন'))+'</article>';}).join('');}
+async function loadData(){const [o,r,n]=await Promise.all([sb.from('checkout_orders').select('id,product_name,product_price,status,download_url,admin_note,created_at').order('created_at',{ascending:false}),sb.from('service_requests').select('id,title,details,status,created_at').order('created_at',{ascending:false}),sb.from('client_notifications').select('id,title,message,is_read,created_at').order('created_at',{ascending:false})]);if(o.error||r.error||n.error){console.error(o.error,r.error,n.error);$('ordersList').innerHTML='<div class="empty">ড্যাশবোর্ডের তথ্য লোড হয়নি। পেজ রিফ্রেশ করে আবার চেষ্টা করুন।</div>';return;}renderList('ordersList',o.data||[],'orders');renderList('requestsList',r.data||[],'requests');renderList('noticesList',n.data||[],'notices');$('orderCount').textContent=(o.data||[]).length;$('requestCount').textContent=(r.data||[]).length;$('noticeCount').textContent=(n.data||[]).filter(x=>!x.is_read).length;window.noticeRows=n.data||[];document.querySelectorAll('#noticesList .item').forEach((el,i)=>{const row=window.noticeRows[i];if(row&&!row.is_read){const b=document.createElement('button');b.className='btn secondary';b.textContent='পড়া হয়েছে চিহ্নিত করুন';b.style.marginTop='8px';b.onclick=async()=>{const {error}=await sb.from('client_notifications').update({is_read:true}).eq('id',row.id);if(!error)loadData();};el.querySelector('div').appendChild(b);}});}
+async function showDashboard(){const {data:{session}}=await sb.auth.getSession();if(!session){$('authPanel').classList.remove('hidden');$('dashboard').classList.add('hidden');return;}$('authPanel').classList.add('hidden');$('dashboard').classList.remove('hidden');$('userEmail').textContent=session.user.email||'Client';await loadData();}
+$('requestForm').addEventListener('submit',async e=>{e.preventDefault();const {data:{user}}=await sb.auth.getUser();if(!user)return;const fd=new FormData(e.currentTarget);const {error}=await sb.from('service_requests').insert({user_id:user.id,title:String(fd.get('title')).trim(),details:String(fd.get('details')||'').trim()});$('requestMessage').textContent=error?error.message:'রিকোয়েস্ট জমা হয়েছে।';if(!error){e.currentTarget.reset();await loadData();}});
+sb.auth.onAuthStateChange((_event,session)=>{if(session)setTimeout(showDashboard,0);});showDashboard();
+</script></body></html>
