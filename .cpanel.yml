@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - /bin/mkdir -p /home/cybersec/public_html/cyber-team-market-staging
+    - /usr/bin/find . -mindepth 1 -maxdepth 1 ! -name '.git' ! -name '.cpanel.yml' -exec /bin/cp -a '{}' /home/cybersec/public_html/cyber-team-market-staging/ \;
